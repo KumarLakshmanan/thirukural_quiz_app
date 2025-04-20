@@ -2,16 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:quiz_app/controllers/question_controller.dart';
 import 'package:quiz_app/models/Questions.dart';
-
-import '../../../constants.dart';
 import 'option.dart';
 
 class QuestionCard extends StatelessWidget {
-  // const QuestionCard({
-  //   Key key,
-  //   // it means we have to pass this
-  //   @required this.question,
-  // }) : super(key: key);
   const QuestionCard({
     required this.question,
   });
@@ -22,11 +15,10 @@ class QuestionCard extends StatelessWidget {
   Widget build(BuildContext context) {
     QuestionController _controller = Get.put(QuestionController());
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: kDefaultPadding),
-      padding: EdgeInsets.all(kDefaultPadding),
+      margin: EdgeInsets.symmetric(horizontal: 10),
+      padding: EdgeInsets.all(10),
       decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(25),
+        borderRadius: BorderRadius.circular(14),
       ),
       child: Column(
         children: [
@@ -35,17 +27,15 @@ class QuestionCard extends StatelessWidget {
             style: Theme.of(context)
                 .textTheme
                 .titleLarge
-                ?.copyWith(color: kBlackColor),
+                ?.copyWith(color: Colors.white),
           ),
-          SizedBox(height: kDefaultPadding / 2),
-          ...List.generate(
-            question.options.length,
-            (index) => Option(
+          SizedBox(height: 12),
+          for (int index = 0; index < question.options.length; index++)
+            Option(
               index: index,
               text: question.options[index],
               press: () => _controller.checkAns(question, index),
             ),
-          ),
         ],
       ),
     );

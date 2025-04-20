@@ -19,23 +19,80 @@ class WelcomeScreen extends StatelessWidget {
                 children: [
                   Spacer(flex: 2), //2/6
                   Text(
-                    "Let's Play Quiz,",
+                    "வினாடி வினா விளையாடுவோம்,",
                     style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                         color: Colors.white, fontWeight: FontWeight.bold),
                   ),
-                  Text("Enter your informations below"),
-                  Spacer(), // 1/6
+                  Text("உங்கள் தகவல்களை கீழே உள்ளிடவும்"),
+                  const SizedBox(height: 20),
+
+                  Text(
+                    "முழு பெயர்",
+                    style: Theme.of(context)
+                        .textTheme
+                        .labelMedium
+                        ?.copyWith(color: Colors.white),
+                  ),
+                  const SizedBox(height: 10),
                   TextField(
                     decoration: InputDecoration(
                       filled: true,
                       fillColor: Color(0xFF1C2341),
-                      hintText: "Full Name",
+                      hintText: "உங்கள் முழுப் பெயரை உள்ளிடவும்",
+                      hintStyle: TextStyle(
+                        color: Colors.white54,
+                        fontSize: 10,
+                      ),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(12)),
                       ),
                     ),
                   ),
-                  Spacer(), // 1/6
+                  const SizedBox(height: 20),
+                  Text(
+                    "இயலாமை",
+                    style: Theme.of(context)
+                        .textTheme
+                        .labelMedium
+                        ?.copyWith(color: Colors.white),
+                  ),
+                  const SizedBox(height: 10),
+                  DropdownButtonFormField(
+                    decoration: InputDecoration(
+                      filled: true,
+                      fillColor: Color(0xFF1C2341),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(12)),
+                      ),
+                    ),
+                    hint: Text(
+                      "உங்கள் இயலாமையைத் தேர்ந்தெடுக்கவும்",
+                      style: TextStyle(
+                        color: Colors.white54,
+                        fontSize: 10,
+                      ),
+                    ),
+                    items: [
+                      DropdownMenuItem(
+                        child: Text("அறிவாற்றல் குறைபாடு"),
+                        value: "அறிவாற்றல் குறைபாடு",
+                      ),
+                      DropdownMenuItem(
+                        child: Text("கேள்வி குறைபாடு"),
+                        value: "கேள்வி குறைபாடு",
+                      ),
+                      DropdownMenuItem(
+                        child: Text("காட்சி குறைபாடு"),
+                        value: "காட்சி குறைபாடு",
+                      ),
+                      DropdownMenuItem(
+                        child: Text("மற்றவைகள்"),
+                        value: "மற்றவைகள்",
+                      ),
+                    ],
+                    onChanged: (value) {},
+                  ),
+                  const SizedBox(height: 20),
                   InkWell(
                     onTap: () => Get.to(QuizScreen()),
                     child: Container(

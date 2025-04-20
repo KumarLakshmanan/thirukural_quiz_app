@@ -34,7 +34,7 @@ class Body extends StatelessWidget {
                   () => Text.rich(
                     TextSpan(
                       text:
-                          "Question ${_questionController.questionNumber.value}",
+                          "கேள்வி ${_questionController.questionNumber.value}",
                       style: Theme.of(context)
                           .textTheme
                           .headlineMedium
@@ -62,7 +62,8 @@ class Body extends StatelessWidget {
                   onPageChanged: _questionController.updateTheQnNum,
                   itemCount: _questionController.questions.length,
                   itemBuilder: (context, index) => QuestionCard(
-                      question: _questionController.questions[index]),
+                    question: _questionController.questions[index],
+                  ),
                 ),
               ),
             ],
