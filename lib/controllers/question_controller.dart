@@ -337,7 +337,9 @@ class QuestionController extends GetxController
                 : int.parse(question['id'].toString()),
             question: question['question'],
             options: question['options'],
-            answer: int.parse(question['answer_index'].toString()),
+            correctIndex: question['answer_index'] is int
+                ? question['answer_index']
+                : int.parse(question['answer_index'].toString()),
           ),
         )
         .toList();
@@ -380,7 +382,7 @@ class QuestionController extends GetxController
   void checkAns(Question question, int selectedIndex) {
     // because once user press any option then it will run
     _isAnswered = true;
-    _correctAns = question.answer;
+    _correctAns = question.correctIndex;
     _selectedAns = selectedIndex;
 
     if (_correctAns == _selectedAns) _numOfCorrectAns++;

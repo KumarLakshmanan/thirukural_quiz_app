@@ -33,6 +33,8 @@ dependencies:
 
   # state management, intelligent dependency injection, and route management
   get: ^4.7.2
+  shared_preferences: ^2.5.3
+  video_player: ^2.9.5
 
 dev_dependencies:
   flutter_test:

@@ -2,9 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:quiz_app/constants.dart';
-import 'package:quiz_app/screens/quiz/quiz_screen.dart';
+import 'package:quiz_app/screens/roadmap/roadmap_screen.dart';
+import 'package:quiz_app/services/shared_preferences_service.dart';
 
-class WelcomeScreen extends StatelessWidget {
+class WelcomeScreen extends StatefulWidget {
+  @override
+  State<WelcomeScreen> createState() => _WelcomeScreenState();
+}
+
+class _WelcomeScreenState extends State<WelcomeScreen> {
+  final TextEditingController nameController = TextEditingController();
+
+  final TextEditingController dobController = TextEditingController();
+  String selectedGender = '';
+  String selectedDisability = '';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,6 +47,7 @@ class WelcomeScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 10),
                   TextField(
+                    controller: nameController,
                     decoration: InputDecoration(
                       filled: true,
                       fillColor: Color(0xFF1C2341),
@@ -45,6 +58,84 @@ class WelcomeScreen extends StatelessWidget {
                       ),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(12)),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                  Text(
+                    "பாலினம்",
+                    style: Theme.of(context)
+                        .textTheme
+                        .labelMedium
+                        ?.copyWith(color: Colors.white),
+                  ),
+                  const SizedBox(height: 10),
+                  DropdownButtonFormField<String>(
+                    decoration: InputDecoration(
+                      filled: true,
+                      fillColor: Color(0xFF1C2341),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(12)),
+                      ),
+                    ),
+                    hint: Text(
+                      "பாலினத்தைத் தேர்ந்தெடுக்கவும்",
+                      style: TextStyle(
+                        color: Colors.white54,
+                        fontSize: 10,
+                      ),
+                    ),
+                    items: [
+                      DropdownMenuItem(child: Text("ஆண்"), value: "ஆண்"),
+                      DropdownMenuItem(child: Text("பெண்"), value: "பெண்"),
+                      DropdownMenuItem(child: Text("மற்றவை"), value: "மற்றவை"),
+                    ],
+                    onChanged: (value) {
+                      selectedGender = value ?? '';
+                    },
+                  ),
+                  const SizedBox(height: 20),
+                  Text(
+                    "பிறந்த தேதி",
+                    style: Theme.of(context)
+                        .textTheme
+                        .labelMedium
+                        ?.copyWith(color: Colors.white),
+                  ),
+                  const SizedBox(height: 10),
+                  InkWell(
+                    onTap: () async {
+                      final DateTime? picked = await showDatePicker(
+                        context: context,
+                        initialDate: DateTime.now(),
+                        firstDate: DateTime(1900),
+                        lastDate: DateTime.now(),
+                      );
+                      if (picked != null) {
+                        dobController.text = "${picked.day}/${picked.month}/${picked.year}";
+                      }
+                    },
+                    child: Container(
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 12, vertical: 16),
+                      decoration: BoxDecoration(
+                        color: Color(0xFF1C2341),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: Row(
+                        children: [
+                          Text(
+                            dobController.text.isEmpty
+                                ? "பிறந்த தேதியைத் தேர்ந்தெடுக்கவும்"
+                                : dobController.text,
+                            style: TextStyle(
+                              color: Colors.white54,
+                              fontSize: 10,
+                            ),
+                          ),
+                          Spacer(),
+                          Icon(Icons.calendar_today, color: Colors.white54),
+                        ],
                       ),
                     ),
                   ),
@@ -90,11 +181,35 @@ class WelcomeScreen extends StatelessWidget {
                         value: "மற்றவைகள்",
                       ),
                     ],
-                    onChanged: (value) {},
+                    onChanged: (value) {
+                      selectedDisability = value ?? '';
+                    },
                   ),
                   const SizedBox(height: 20),
                   InkWell(
-                    onTap: () => Get.to(QuizScreen()),
+                    onTap: () async {
+                      if (nameController.text.isEmpty ||
+                          selectedGender.isEmpty ||
+                          dobController.text.isEmpty ||
+                          selectedDisability.isEmpty) {
+                        Get.snackbar(
+                          'எச்சரிக்கை',
+                          'அனைத்து விவரங்களையும் பூர்த்தி செய்யவும்',
+                          backgroundColor: Colors.red,
+                          colorText: Colors.white,
+                        );
+                        return;
+                      }
+
+                      await SharedPreferencesService.saveUserDetails(
+                        name: nameController.text,
+                        gender: selectedGender,
+                        dateOfBirth: dobController.text,
+                        disability: selectedDisability,
+                      );
+
+                      Get.to(() => RoadmapScreen());
+                    },
                     child: Container(
                       width: double.infinity,
                       alignment: Alignment.center,
@@ -104,7 +219,7 @@ class WelcomeScreen extends StatelessWidget {
                         borderRadius: BorderRadius.all(Radius.circular(12)),
                       ),
                       child: Text(
-                        "Lets Start Quiz",
+                        "தொடங்குவோம்",
                         style: Theme.of(context)
                             .textTheme
                             .labelLarge
