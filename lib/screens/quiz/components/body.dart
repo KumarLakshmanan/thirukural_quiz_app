@@ -1,19 +1,31 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:quiz_app/constants.dart';
-import 'package:quiz_app/controllers/question_controller.dart';
 import 'package:flutter_svg/svg.dart';
 
+import 'package:quiz_app/models/Questions.dart';
 import 'progress_bar.dart';
 import 'question_card.dart';
 
 class Body extends StatelessWidget {
-  const Body({super.key});
+  final List<Question> questions;
+  final int currentIndex;
+  final Animation<double> animation;
+  final Function(int) onAnswerSelected;
+  final int? selectedAnswer;
+  final PageController pageController;
+
+  const Body({
+    super.key,
+    required this.questions,
+    required this.currentIndex,
+    required this.animation,
+    required this.onAnswerSelected,
+    this.selectedAnswer,
+    required this.pageController,
+  });
 
   @override
   Widget build(BuildContext context) {
-    // So that we have acccess our controller
-    QuestionController _questionController = Get.put(QuestionController());
     return Stack(
       children: [
         SvgPicture.asset("assets/icons/bg.svg", fit: BoxFit.fill),
@@ -24,31 +36,28 @@ class Body extends StatelessWidget {
               Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: kDefaultPadding),
-                child: ProgressBar(),
+                child: ProgressBar(animation: animation),
               ),
               SizedBox(height: kDefaultPadding),
               Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: kDefaultPadding),
-                child: Obx(
-                  () => Text.rich(
-                    TextSpan(
-                      text:
-                          "கேள்வி ${_questionController.questionNumber.value}",
-                      style: Theme.of(context)
-                          .textTheme
-                          .headlineMedium
-                          ?.copyWith(color: kSecondaryColor),
-                      children: [
-                        TextSpan(
-                          text: "/${_questionController.questions.length}",
-                          style: Theme.of(context)
-                              .textTheme
-                              .headlineSmall
-                              ?.copyWith(color: kSecondaryColor),
-                        ),
-                      ],
-                    ),
+                child: Text.rich(
+                  TextSpan(
+                    text: "கேள்வி ${currentIndex + 1}",
+                    style: Theme.of(context)
+                        .textTheme
+                        .headlineMedium
+                        ?.copyWith(color: kSecondaryColor),
+                    children: [
+                      TextSpan(
+                        text: "/${questions.length}",
+                        style: Theme.of(context)
+                            .textTheme
+                            .headlineSmall
+                            ?.copyWith(color: kSecondaryColor),
+                      ),
+                    ],
                   ),
                 ),
               ),
@@ -56,19 +65,19 @@ class Body extends StatelessWidget {
               SizedBox(height: kDefaultPadding),
               Expanded(
                 child: PageView.builder(
-                  // Block swipe to next qn
                   physics: NeverScrollableScrollPhysics(),
-                  controller: _questionController.pageController,
-                  onPageChanged: _questionController.updateTheQnNum,
-                  itemCount: _questionController.questions.length,
+                  controller: pageController,
+                  itemCount: questions.length,
                   itemBuilder: (context, index) => QuestionCard(
-                    question: _questionController.questions[index],
+                    question: questions[index],
+                    onAnswerSelected: onAnswerSelected,
+                    selectedAnswer: selectedAnswer,
                   ),
                 ),
               ),
             ],
           ),
-        )
+        ),
       ],
     );
   }

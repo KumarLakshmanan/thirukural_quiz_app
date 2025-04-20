@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:quiz_app/constants.dart';
+import 'package:quiz_app/constants/app_constants.dart';
 import 'package:quiz_app/models/Questions.dart';
 import 'package:quiz_app/screens/quiz/quiz_screen.dart';
 import 'package:quiz_app/services/shared_preferences_service.dart';
@@ -10,18 +11,17 @@ import 'package:quiz_app/screens/stage/video_screen.dart';
 import 'package:quiz_app/screens/stage/photos_screen.dart';
 
 class StageScreen extends StatelessWidget {
-  final LevelModel level;
-
-  StageScreen({required this.level});
+  StageScreen({required this.levelIndex});
+  final int levelIndex;
 
   Future<bool> isStageCompleted(int stageIndex) async {
     return await SharedPreferencesService.isStageCompleted(
-        level.index, stageIndex);
+        levelIndex, stageIndex);
   }
 
   void navigateToStage(BuildContext context, int stageIndex) {
-    final stage = level.stages[stageIndex];
-    
+    final stage = appLevels[levelIndex].stages[stageIndex];
+
     switch (stage.type) {
       case StageType.thirukural:
         Get.to(() => ThirukuralScreen(
@@ -43,12 +43,14 @@ class StageScreen extends StatelessWidget {
         break;
       case StageType.quiz:
         if (stage.questions != null && stage.questions!.isNotEmpty) {
-          Get.to(() => QuizScreen(questions: stage.questions!));
+          Get.to(
+            () => QuizScreen(
+              questions: appLevels[levelIndex].stages[3].questions!,
+            ),
+          );
         } else {
           Get.snackbar('Error', 'No questions available for this quiz');
         }
-        break;
-      case StageType.reading:
         break;
     }
   }
@@ -67,7 +69,7 @@ class StageScreen extends StatelessWidget {
                   padding:
                       const EdgeInsets.symmetric(horizontal: kDefaultPadding),
                   child: Text(
-                    level.name,
+                    appLevels[levelIndex].name,
                     style: Theme.of(context)
                         .textTheme
                         .headlineMedium
@@ -76,7 +78,7 @@ class StageScreen extends StatelessWidget {
                 ),
                 Expanded(
                   child: GridView.builder(
-                    itemCount: level.stages.length,
+                    itemCount: appLevels[levelIndex].stages.length,
                     padding: const EdgeInsets.all(kDefaultPadding),
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
@@ -101,7 +103,7 @@ class StageScreen extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  level.stages[index].title,
+                                  appLevels[levelIndex].stages[index].title,
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 20,

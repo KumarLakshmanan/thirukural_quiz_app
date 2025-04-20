@@ -56,10 +56,11 @@ class RoadmapScreen extends StatelessWidget {
                     ),
                     itemCount: chapters.length,
                     itemBuilder: (context, index) => GestureDetector(
-                      onTap: () => Get.to(() => StageScreen(
-                            levelIndex: index,
-                            levelName: chapters[index],
-                          )),
+                      onTap: () => Get.to(
+                        () => StageScreen(
+                          levelIndex: index,
+                        ),
+                      ),
                       child: Container(
                         padding: EdgeInsets.all(kDefaultPadding),
                         decoration: BoxDecoration(
@@ -98,8 +99,6 @@ class RoadmapScreen extends StatelessWidget {
                       onTap: () => Get.to(
                         () => StageScreen(
                           levelIndex: index,
-                          levelName: chapters[index],
-                          level: stages[index],
                         ),
                       ),
                       child: Container(

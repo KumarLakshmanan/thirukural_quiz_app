@@ -11,6 +11,11 @@ class Question {
   });
   
   factory Question.fromJson(Map<String, dynamic> json) {
+    if(json['id'] == null) throw FormatException('Missing id field in question JSON');
+    if(json['question'] == null) throw FormatException('Missing question field');
+    if(json['correctIndex'] == null) throw FormatException('Missing correctIndex');
+    if(json['options'] == null) throw FormatException('Missing options array');
+    
     return Question(
       id: json['id'],
       question: json['question'],
@@ -80,6 +85,5 @@ enum StageType {
   thirukural,
   video,
   photos,
-  reading,
   quiz,
 }
