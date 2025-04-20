@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+
 import 'package:get/get.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:quiz_app/constants.dart';
@@ -18,6 +18,21 @@ class ThirukuralScreen extends StatefulWidget {
 }
 
 class _ThirukuralScreenState extends State<ThirukuralScreen> {
+  late AudioPlayer player;
+  bool isPlaying = false;
+
+  @override
+  void initState() {
+    super.initState();
+    player = AudioPlayer();
+  }
+
+  @override
+  void dispose() {
+    player.dispose(); // Dispose of the AudioPlayer
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,7 +47,16 @@ class _ThirukuralScreenState extends State<ThirukuralScreen> {
       ),
       body: Stack(
         children: [
-          SvgPicture.asset("assets/icons/bg.svg", fit: BoxFit.fill),
+          Container(
+            decoration: BoxDecoration(
+              color: Color(0xFF252c4a).withValues(alpha: 0.5),
+              image: DecorationImage(
+                image: AssetImage("assets/icons/bg.png"),
+                opacity: 0.2,
+                repeat: ImageRepeat.repeat,
+              ),
+            ),
+          ),
           SafeArea(
             child: Padding(
               padding: const EdgeInsets.all(kDefaultPadding),
@@ -70,33 +94,25 @@ class _ThirukuralScreenState extends State<ThirukuralScreen> {
           ),
         ],
       ),
-      floatingActionButton: StatefulBuilder(
-        builder: (context, setState) {
-          final player = AudioPlayer();
-          bool isPlaying = false;
-
-          return FloatingActionButton(
-            onPressed: () async {
-              if (isPlaying) {
-                await player.pause();
-              } else {
-                await player.setAudioSource(AudioSource.asset(
-                  'assets/audio/${widget.stage.level}.mp3',
-                ));
-                await player.play();
-              }
-              setState(() {
-                isPlaying = !isPlaying;
-              });
-            },
-            child: Builder(
-              builder: (context) {
-                return Icon(isPlaying ? Icons.pause : Icons.play_arrow);
-              },
-            ),
-            backgroundColor: Colors.orange,
-          );
+      floatingActionButton: FloatingActionButton(
+        onPressed: () async {
+          if (isPlaying) {
+            setState(() {
+              isPlaying = false;
+            });
+            await player.pause();
+          } else {
+            await player.setAudioSource(AudioSource.asset(
+              'assets/audio/${widget.stage.level}.mp3',
+            ));
+            setState(() {
+              isPlaying = true;
+            });
+            await player.play();
+          }
         },
+        child: Icon(isPlaying ? Icons.pause : Icons.play_arrow),
+        backgroundColor: Colors.orange,
       ),
     );
   }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+
 import 'package:get/get.dart';
 import 'package:quiz_app/constants.dart';
 import 'package:quiz_app/constants/app_constants.dart';
@@ -78,7 +78,16 @@ class _StageScreenState extends State<StageScreen> {
       ),
       body: Stack(
         children: [
-          SvgPicture.asset("assets/icons/bg.svg", fit: BoxFit.fill),
+          Container(
+            decoration: BoxDecoration(
+              color: Color(0xFF252c4a).withValues(alpha: 0.5),
+              image: DecorationImage(
+                image: AssetImage("assets/icons/bg.png"),
+                opacity: 0.2,
+                repeat: ImageRepeat.repeat,
+              ),
+            ),
+          ),
           ListView(
             padding: const EdgeInsets.all(kDefaultPadding),
             children: [

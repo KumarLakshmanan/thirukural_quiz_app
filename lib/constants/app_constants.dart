@@ -349,19 +349,7 @@ final List<LevelModel> appLevels = [
         level: 1,
         images: [
           {
-            'url': 'assets/images/story1.png',
-            'title': 'அச்சம்',
-            'description':
-                'அச்சம் என்பது பயம் அல்லது ஒரு ஆபத்து பற்றிய கவலை என்று பொருள்',
-          },
-          {
-            'url': 'assets/images/story2.png',
-            'title': 'அச்சம்',
-            'description':
-                'அச்சம் என்பது பயம் அல்லது ஒரு ஆபத்து பற்றிய கவலை என்று பொருள்',
-          },
-          {
-            'url': 'assets/images/story3.png',
+            'url': 'assets/icons/story1.png',
             'title': 'அச்சம்',
             'description':
                 'அச்சம் என்பது பயம் அல்லது ஒரு ஆபத்து பற்றிய கவலை என்று பொருள்',
@@ -423,19 +411,7 @@ final List<LevelModel> appLevels = [
         level: 2,
         images: [
           {
-            'url': 'assets/images/story1.png',
-            'title': 'அச்சம்',
-            'description':
-                'அச்சம் என்பது பயம் அல்லது ஒரு ஆபத்து பற்றிய கவலை என்று பொருள்',
-          },
-          {
-            'url': 'assets/images/story2.png',
-            'title': 'அச்சம்',
-            'description':
-                'அச்சம் என்பது பயம் அல்லது ஒரு ஆபத்து பற்றிய கவலை என்று பொருள்',
-          },
-          {
-            'url': 'assets/images/story3.png',
+            'url': 'assets/icons/story1.png',
             'title': 'அச்சம்',
             'description':
                 'அச்சம் என்பது பயம் அல்லது ஒரு ஆபத்து பற்றிய கவலை என்று பொருள்',
@@ -496,19 +472,7 @@ final List<LevelModel> appLevels = [
         title: 'படம்',
         images: [
           {
-            'url': 'assets/images/story1.png',
-            'title': 'அச்சம்',
-            'description':
-                'அச்சம் என்பது பயம் அல்லது ஒரு ஆபத்து பற்றிய கவலை என்று பொருள்',
-          },
-          {
-            'url': 'assets/images/story2.png',
-            'title': 'அச்சம்',
-            'description':
-                'அச்சம் என்பது பயம் அல்லது ஒரு ஆபத்து பற்றிய கவலை என்று பொருள்',
-          },
-          {
-            'url': 'assets/images/story3.png',
+            'url': 'assets/icons/story1.png',
             'title': 'அச்சம்',
             'description':
                 'அச்சம் என்பது பயம் அல்லது ஒரு ஆபத்து பற்றிய கவலை என்று பொருள்',
@@ -566,19 +530,7 @@ final List<LevelModel> appLevels = [
         title: 'படம்',
         images: [
           {
-            'url': 'assets/images/story1.png',
-            'title': 'அச்சம்',
-            'description':
-                'அச்சம் என்பது பயம் அல்லது ஒரு ஆபத்து பற்றிய கவலை என்று பொருள்',
-          },
-          {
-            'url': 'assets/images/story2.png',
-            'title': 'அச்சம்',
-            'description':
-                'அச்சம் என்பது பயம் அல்லது ஒரு ஆபத்து பற்றிய கவலை என்று பொருள்',
-          },
-          {
-            'url': 'assets/images/story3.png',
+            'url': 'assets/icons/story1.png',
             'title': 'அச்சம்',
             'description':
                 'அச்சம் என்பது பயம் அல்லது ஒரு ஆபத்து பற்றிய கவலை என்று பொருள்',
@@ -640,19 +592,7 @@ final List<LevelModel> appLevels = [
         title: 'படம்',
         images: [
           {
-            'url': 'assets/images/story1.png',
-            'title': 'அச்சம்',
-            'description':
-                'அச்சம் என்பது பயம் அல்லது ஒரு ஆபத்து பற்றிய கவலை என்று பொருள்',
-          },
-          {
-            'url': 'assets/images/story2.png',
-            'title': 'அச்சம்',
-            'description':
-                'அச்சம் என்பது பயம் அல்லது ஒரு ஆபத்து பற்றிய கவலை என்று பொருள்',
-          },
-          {
-            'url': 'assets/images/story3.png',
+            'url': 'assets/icons/story1.png',
             'title': 'அச்சம்',
             'description':
                 'அச்சம் என்பது பயம் அல்லது ஒரு ஆபத்து பற்றிய கவலை என்று பொருள்',
@@ -710,19 +650,7 @@ final List<LevelModel> appLevels = [
         title: 'படம்',
         images: [
           {
-            'url': 'assets/images/story1.png',
-            'title': 'அச்சம்',
-            'description':
-                'அச்சம் என்பது பயம் அல்லது ஒரு ஆபத்து பற்றிய கவலை என்று பொருள்',
-          },
-          {
-            'url': 'assets/images/story2.png',
-            'title': 'அச்சம்',
-            'description':
-                'அச்சம் என்பது பயம் அல்லது ஒரு ஆபத்து பற்றிய கவலை என்று பொருள்',
-          },
-          {
-            'url': 'assets/images/story3.png',
+            'url': 'assets/icons/story1.png',
             'title': 'அச்சம்',
             'description':
                 'அச்சம் என்பது பயம் அல்லது ஒரு ஆபத்து பற்றிய கவலை என்று பொருள்',
@@ -780,19 +708,7 @@ final List<LevelModel> appLevels = [
         title: 'படம்',
         images: [
           {
-            'url': 'assets/images/story1.png',
-            'title': 'அச்சம்',
-            'description':
-                'அச்சம் என்பது பயம் அல்லது ஒரு ஆபத்து பற்றிய கவலை என்று பொருள்',
-          },
-          {
-            'url': 'assets/images/story2.png',
-            'title': 'அச்சம்',
-            'description':
-                'அச்சம் என்பது பயம் அல்லது ஒரு ஆபத்து பற்றிய கவலை என்று பொருள்',
-          },
-          {
-            'url': 'assets/images/story3.png',
+            'url': 'assets/icons/story1.png',
             'title': 'அச்சம்',
             'description':
                 'அச்சம் என்பது பயம் அல்லது ஒரு ஆபத்து பற்றிய கவலை என்று பொருள்',
@@ -849,19 +765,7 @@ final List<LevelModel> appLevels = [
         title: 'படம்',
         images: [
           {
-            'url': 'assets/images/story1.png',
-            'title': 'அச்சம்',
-            'description':
-                'அச்சம் என்பது பயம் அல்லது ஒரு ஆபத்து பற்றிய கவலை என்று பொருள்',
-          },
-          {
-            'url': 'assets/images/story2.png',
-            'title': 'அச்சம்',
-            'description':
-                'அச்சம் என்பது பயம் அல்லது ஒரு ஆபத்து பற்றிய கவலை என்று பொருள்',
-          },
-          {
-            'url': 'assets/images/story3.png',
+            'url': 'assets/icons/story1.png',
             'title': 'அச்சம்',
             'description':
                 'அச்சம் என்பது பயம் அல்லது ஒரு ஆபத்து பற்றிய கவலை என்று பொருள்',
@@ -922,19 +826,7 @@ final List<LevelModel> appLevels = [
         title: 'படம்',
         images: [
           {
-            'url': 'assets/images/story1.png',
-            'title': 'அச்சம்',
-            'description':
-                'அச்சம் என்பது பயம் அல்லது ஒரு ஆபத்து பற்றிய கவலை என்று பொருள்',
-          },
-          {
-            'url': 'assets/images/story2.png',
-            'title': 'அச்சம்',
-            'description':
-                'அச்சம் என்பது பயம் அல்லது ஒரு ஆபத்து பற்றிய கவலை என்று பொருள்',
-          },
-          {
-            'url': 'assets/images/story3.png',
+            'url': 'assets/icons/story1.png',
             'title': 'அச்சம்',
             'description':
                 'அச்சம் என்பது பயம் அல்லது ஒரு ஆபத்து பற்றிய கவலை என்று பொருள்',
@@ -995,19 +887,7 @@ final List<LevelModel> appLevels = [
         title: 'படம்',
         images: [
           {
-            'url': 'assets/images/story1.png',
-            'title': 'அச்சம்',
-            'description':
-                'அச்சம் என்பது பயம் அல்லது ஒரு ஆபத்து பற்றிய கவலை என்று பொருள்',
-          },
-          {
-            'url': 'assets/images/story2.png',
-            'title': 'அச்சம்',
-            'description':
-                'அச்சம் என்பது பயம் அல்லது ஒரு ஆபத்து பற்றிய கவலை என்று பொருள்',
-          },
-          {
-            'url': 'assets/images/story3.png',
+            'url': 'assets/icons/story1.png',
             'title': 'அச்சம்',
             'description':
                 'அச்சம் என்பது பயம் அல்லது ஒரு ஆபத்து பற்றிய கவலை என்று பொருள்',

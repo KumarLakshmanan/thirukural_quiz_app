@@ -31,7 +31,7 @@ class _QuizScreenState extends State<QuizScreen> with SingleTickerProviderStateM
         correctAnswers++;
       }
     });
-    Future.delayed(Duration(seconds: 3), _nextQuestion);
+    // Future.delayed(Duration(seconds: 3), _nextQuestion);
   }
 
   void _nextQuestion() {

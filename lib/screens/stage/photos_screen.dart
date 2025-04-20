@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+
 import 'package:quiz_app/constants.dart';
 import 'package:get/get.dart';
 import 'package:quiz_app/models/Questions.dart';
@@ -26,7 +26,16 @@ class PhotosScreen extends StatelessWidget {
       ),
       body: Stack(
         children: [
-          SvgPicture.asset("assets/icons/bg.svg", fit: BoxFit.fill),
+          Container(
+            decoration: BoxDecoration(
+              color: Color(0xFF252c4a).withValues(alpha: 0.5),
+              image: DecorationImage(
+                image: AssetImage("assets/icons/bg.png"),
+                opacity: 0.2,
+                repeat: ImageRepeat.repeat,
+              ),
+            ),
+          ),
           SafeArea(
             child: Padding(
               padding: const EdgeInsets.all(kDefaultPadding),
@@ -45,29 +54,47 @@ class PhotosScreen extends StatelessWidget {
                     child: ListView.builder(
                       itemCount: stage.images!.length,
                       itemBuilder: (context, index) {
-                        return Card(
-                          color: Colors.white.withValues(alpha: 0.2),
-                          margin: EdgeInsets.only(bottom: 20),
-                          child: Column(
-                            children: [
-                              Image.network(
-                                'https://placehold.co/600x400',
-                                height: 200,
-                                width: double.infinity,
-                                fit: BoxFit.cover,
-                              ),
-                              ListTile(
-                                contentPadding: EdgeInsets.all(10),
-                                title: Text(
-                                  stage.images![index]['title'] ?? 'Photo ${index + 1}',
-                                  style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-                                ),
-                                subtitle: Text(
-                                  stage.images![index]['description'] ?? 'Description for photo ${index + 1}',
-                                  style: TextStyle(color: Colors.white70),
+                        return GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => FullScreenImage(
+                                  imageUrl: stage.images![index]['url'] ??
+                                      'assets/icons/thiruvalluvar.png',
                                 ),
                               ),
-                            ],
+                            );
+                          },
+                          child: Card(
+                            color: Colors.white.withOpacity(0.2),
+                            margin: EdgeInsets.only(bottom: 20),
+                            child: Column(
+                              children: [
+                                Image.asset(
+                                  stage.images![index]['url'] ??
+                                      'assets/icons/thiruvalluvar.png',
+                                  height: 200,
+                                  width: double.infinity,
+                                  fit: BoxFit.cover,
+                                ),
+                                ListTile(
+                                  contentPadding: EdgeInsets.all(10),
+                                  title: Text(
+                                    stage.images![index]['title'] ??
+                                        'Photo ${index + 1}',
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  subtitle: Text(
+                                    stage.images![index]['description'] ??
+                                        'Description for photo ${index + 1}',
+                                    style: TextStyle(color: Colors.white70),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         );
                       },
@@ -78,6 +105,34 @@ class PhotosScreen extends StatelessWidget {
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class FullScreenImage extends StatelessWidget {
+  final String imageUrl;
+
+  const FullScreenImage({Key? key, required this.imageUrl}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.black,
+        title: Text('Full Screen Image'),
+      ),
+      body: InteractiveViewer(
+        panEnabled: true,
+        boundaryMargin: EdgeInsets.all(20),
+        minScale: 0.5,
+        maxScale: 4.0,
+        child: Container(
+          height: double.infinity,
+          child: Image.asset(
+            imageUrl,
+          ),
+        ),
       ),
     );
   }

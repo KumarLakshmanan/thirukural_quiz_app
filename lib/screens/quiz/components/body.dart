@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app/constants.dart';
-import 'package:flutter_svg/svg.dart';
+
 
 import 'package:quiz_app/models/Questions.dart';
 import 'question_card.dart';
@@ -25,7 +25,16 @@ class Body extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        SvgPicture.asset("assets/icons/bg.svg", fit: BoxFit.fill),
+        Container(
+            decoration: BoxDecoration(
+              color: Color(0xFF252c4a).withValues(alpha: 0.5),
+              image: DecorationImage(
+                image: AssetImage("assets/icons/bg.png"),
+                opacity: 0.2,
+                repeat: ImageRepeat.repeat,
+              ),
+            ),
+          ),
         SafeArea(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:quiz_app/constants.dart';
 import 'package:quiz_app/constants/app_constants.dart';
@@ -85,7 +84,16 @@ class _RoadmapScreenState extends State<RoadmapScreen> {
       ),
       body: Stack(
         children: [
-          SvgPicture.asset("assets/icons/bg.svg", fit: BoxFit.fill),
+          Container(
+            decoration: BoxDecoration(
+              color: Color(0xFF252c4a).withValues(alpha: 0.5),
+              image: DecorationImage(
+                image: AssetImage("assets/icons/bg.png"),
+                opacity: 0.2,
+                repeat: ImageRepeat.repeat,
+              ),
+            ),
+          ),
           SafeArea(
             child: SingleChildScrollView(
               padding: const EdgeInsets.all(kDefaultPadding),
@@ -123,8 +131,8 @@ class _RoadmapScreenState extends State<RoadmapScreen> {
                                 padding: EdgeInsets.all(kDefaultPadding),
                                 decoration: BoxDecoration(
                                   color: isAccessible
-                                      ? Colors.white.withOpacity(0.2)
-                                      : Colors.grey.withOpacity(0.5),
+                                      ? Colors.white.withValues(alpha: 0.2)
+                                      : Colors.grey.withValues(alpha: 0.5),
                                   borderRadius: BorderRadius.circular(10),
                                 ),
                                 child: Column(
@@ -160,7 +168,7 @@ class _RoadmapScreenState extends State<RoadmapScreen> {
                                                   color: starIndex < filledStars
                                                       ? Colors.amber
                                                       : Colors.grey
-                                                          .withOpacity(0.3),
+                                                          .withValues(alpha: 0.3),
                                                   size: 20,
                                                 );
                                               }),

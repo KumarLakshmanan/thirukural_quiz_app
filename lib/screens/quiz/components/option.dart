@@ -26,8 +26,13 @@ class Option extends StatelessWidget {
       }
       return kGrayColor; // Not selected
     }
-
-    return InkWell(
+    Color getTheTextRightColor() {
+      if (isSelected) {
+        return Colors.white;
+      }
+      return kGrayColor; // Not selected
+    }
+    return GestureDetector(
       onTap: press,
       child: Container(
         margin: EdgeInsets.only(top: kDefaultPadding),
@@ -35,14 +40,14 @@ class Option extends StatelessWidget {
         decoration: BoxDecoration(
           border: Border.all(color: getTheRightColor()),
           borderRadius: BorderRadius.circular(15),
-          color: isSelected ? getTheRightColor().withValues(alpha: 0.1) : null,
+          color: isSelected ? getTheRightColor().withValues(alpha: 0.5) : Colors.white.withValues(alpha: 0.1),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
               "${index + 1}. $text",
-              style: TextStyle(color: getTheRightColor(), fontSize: 16),
+              style: TextStyle(color: getTheTextRightColor(), fontSize: 16),
             ),
             Container(
               height: 26,
