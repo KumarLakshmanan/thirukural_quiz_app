@@ -41,6 +41,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
             child: ListView(
               padding: const EdgeInsets.all(10),
               children: [
+                SizedBox(height: 40), // it will take 2/6 spaces
                 Text("உங்கள் தகவல்களை கீழே உள்ளிடவும்"),
                 const SizedBox(height: 20),
                 Text(
@@ -81,6 +82,10 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     fillColor: Color(0xFF1C2341),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(12)),
+                      borderSide: BorderSide(
+                        color: Colors.white54,
+                        width: 1,
+                      ),
                     ),
                   ),
                   hint: Text(
@@ -125,6 +130,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     padding: EdgeInsets.symmetric(horizontal: 12, vertical: 16),
                     decoration: BoxDecoration(
                       color: Color(0xFF1C2341),
+                      border: Border.all(color: Colors.white54),
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: Row(
@@ -232,7 +238,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     ),
                   ),
                 ),
-                Spacer(flex: 2), // it will take 2/6 spaces
+                SizedBox(height: 40), // it will take 2/6 spaces
               ],
             ),
           ),
