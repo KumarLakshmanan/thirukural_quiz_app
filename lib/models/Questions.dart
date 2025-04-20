@@ -45,31 +45,31 @@ class LevelModel {
 }
 
 class StageModel {
+  final int level;
   final StageType type;
   final String title;
   final String? kural;
   final String? explanation;
-  final String? videoUrl;
   final List<Map<String, String>>? images;
   final List<Question>? questions;
 
   StageModel({
+    required this.level,
     required this.type,
     required this.title,
     this.kural,
     this.explanation,
-    this.videoUrl,
     this.images,
     this.questions,
   });
 
   factory StageModel.fromJson(Map<String, dynamic> json) {
     return StageModel(
+      level: json['level'],
       type: StageType.values.firstWhere((e) => e.name == json['type']),
       title: json['title'],
       kural: json['kural'],
       explanation: json['explanation'],
-      videoUrl: json['url'],
       images: json['images'] != null
           ? List<Map<String, String>>.from(json['images'])
           : null,

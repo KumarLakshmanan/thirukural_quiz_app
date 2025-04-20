@@ -1,5 +1,25 @@
 import '../models/Questions.dart';
 
+final List<String> chapters = [
+  'இன்னா செய்யாமை',
+  'பொருள் (அருளுடைமை)',
+  'வாய்மை',
+  'பண்புடைமை',
+  'கல்வி',
+  'அன்புடைமை',
+  'வான்சிறப்பு',
+  'செய்நன்றி அறிதல்',
+  'காலம் அறிதல்',
+  'இனியவை கூறல்',
+];
+
+final List<String> stages = [
+  'திருக்குறள்',
+  'வீடியோ',
+  'படங்கள்',
+  'வினாடி வினா',
+];
+
 List sample_data = [
   {
     "id": 1,
@@ -304,6 +324,7 @@ List sample_data = [
     "options": ["விருப்பம் 1", "விருப்பம் 2", "விருப்பம் 3", "விருப்பம் 4"]
   }
 ];
+
 final List<LevelModel> appLevels = [
   LevelModel(
     index: 0,
@@ -312,6 +333,7 @@ final List<LevelModel> appLevels = [
       StageModel(
         type: StageType.thirukural,
         title: 'திருக்குறள்',
+        level: 1,
         kural: 'இன்னாசெய் தாரை ஒறுத்தல் அவர் நாண\nநன்னயம் செய்து விடல்',
         explanation:
             'ஒருவர் உனக்கு தீங்கு செய்தால், அவரைத் தண்டிக்க சிறந்த வழி, அவர் வெட்கப்படும்படி அவருக்கு நன்மை செய்வது.',
@@ -319,28 +341,37 @@ final List<LevelModel> appLevels = [
       StageModel(
         type: StageType.video,
         title: 'வீடியோ',
+        level: 1,
       ),
       StageModel(
         type: StageType.photos,
-        title: 'சிறுகதை',
+        title: 'படம்',
+        level: 1,
         images: [
           {
             'url': 'assets/images/story1.png',
-            'description': 'சிறுகதை 1',
+            'title': 'அச்சம்',
+            'description':
+                'அச்சம் என்பது பயம் அல்லது ஒரு ஆபத்து பற்றிய கவலை என்று பொருள்',
           },
           {
             'url': 'assets/images/story2.png',
-            'description': 'சிறுகதை 2',
+            'title': 'அச்சம்',
+            'description':
+                'அச்சம் என்பது பயம் அல்லது ஒரு ஆபத்து பற்றிய கவலை என்று பொருள்',
           },
           {
             'url': 'assets/images/story3.png',
-            'description': 'சிறுகதை 3',
+            'title': 'அச்சம்',
+            'description':
+                'அச்சம் என்பது பயம் அல்லது ஒரு ஆபத்து பற்றிய கவலை என்று பொருள்',
           }
         ],
       ),
       StageModel(
         type: StageType.quiz,
         title: 'வினாடி வினா',
+        level: 1,
         questions: [
           Question(
             id: 1,
@@ -370,11 +401,12 @@ final List<LevelModel> appLevels = [
   ),
   LevelModel(
     index: 1,
-    name: 'பொருள் (அருளுடைமை)',
+    name: 'பொருள்',
     stages: [
       StageModel(
         type: StageType.thirukural,
         title: 'திருக்குறள்',
+        level: 2,
         kural:
             'அருளில்லார்க்கு அவ்வுலகம் இல்லை பொருளில்லார்க்கு\nஇவ்வுலகம் இல்லாகி யாங்கு',
         explanation:
@@ -383,28 +415,37 @@ final List<LevelModel> appLevels = [
       StageModel(
         type: StageType.video,
         title: 'வீடியோ',
+        level: 2,
       ),
       StageModel(
         type: StageType.photos,
-        title: 'சிறுகதை',
+        title: 'படம்',
+        level: 2,
         images: [
           {
             'url': 'assets/images/story1.png',
-            'description': 'சிறுகதை 1',
+            'title': 'அச்சம்',
+            'description':
+                'அச்சம் என்பது பயம் அல்லது ஒரு ஆபத்து பற்றிய கவலை என்று பொருள்',
           },
           {
             'url': 'assets/images/story2.png',
-            'description': 'சிறுகதை 2',
+            'title': 'அச்சம்',
+            'description':
+                'அச்சம் என்பது பயம் அல்லது ஒரு ஆபத்து பற்றிய கவலை என்று பொருள்',
           },
           {
             'url': 'assets/images/story3.png',
-            'description': 'சிறுகதை 3',
+            'title': 'அச்சம்',
+            'description':
+                'அச்சம் என்பது பயம் அல்லது ஒரு ஆபத்து பற்றிய கவலை என்று பொருள்',
           }
         ],
       ),
       StageModel(
         type: StageType.quiz,
         title: 'வினாடி வினா',
+        level: 2,
         questions: [
           Question(
             id: 1,
@@ -437,6 +478,7 @@ final List<LevelModel> appLevels = [
     name: 'வாய்மை',
     stages: [
       StageModel(
+        level: 3,
         type: StageType.thirukural,
         title: 'திருக்குறள்',
         kural: 'உள்ளத்தால் பொய்யாது ஒழுகின் உலகத்தார்\nஉள்ளத்து ளெல்லாம் உளன்',
@@ -444,28 +486,37 @@ final List<LevelModel> appLevels = [
             'ஒருவர் தன் மனதில் பொய் இல்லாமல் வாழ்ந்தால், அவர் உலகத்தார் மனதில் என்றென்றும் வாழ்வார்.',
       ),
       StageModel(
+        level: 3,
         type: StageType.video,
         title: 'வீடியோ',
       ),
       StageModel(
+        level: 3,
         type: StageType.photos,
-        title: 'சிறுகதை',
+        title: 'படம்',
         images: [
           {
             'url': 'assets/images/story1.png',
-            'description': 'சிறுகதை 1',
+            'title': 'அச்சம்',
+            'description':
+                'அச்சம் என்பது பயம் அல்லது ஒரு ஆபத்து பற்றிய கவலை என்று பொருள்',
           },
           {
             'url': 'assets/images/story2.png',
-            'description': 'சிறுகதை 2',
+            'title': 'அச்சம்',
+            'description':
+                'அச்சம் என்பது பயம் அல்லது ஒரு ஆபத்து பற்றிய கவலை என்று பொருள்',
           },
           {
             'url': 'assets/images/story3.png',
-            'description': 'சிறுகதை 3',
+            'title': 'அச்சம்',
+            'description':
+                'அச்சம் என்பது பயம் அல்லது ஒரு ஆபத்து பற்றிய கவலை என்று பொருள்',
           }
         ],
       ),
       StageModel(
+        level: 3,
         type: StageType.quiz,
         title: 'வினாடி வினா',
         questions: [
@@ -496,6 +547,7 @@ final List<LevelModel> appLevels = [
     name: 'பண்புடைமை',
     stages: [
       StageModel(
+        level: 4,
         type: StageType.thirukural,
         title: 'திருக்குறள்',
         kural:
@@ -504,28 +556,37 @@ final List<LevelModel> appLevels = [
             'நல்ல பண்புடையவர்கள் இருப்பதால் தான் உலகம் இன்னும் இயங்கிக் கொண்டிருக்கிறது. அவர்கள் இல்லையென்றால் மண்மேடாக அழிந்து போயிருக்கும்.',
       ),
       StageModel(
+        level: 4,
         type: StageType.video,
         title: 'வீடியோ',
       ),
       StageModel(
+        level: 4,
         type: StageType.photos,
-        title: 'சிறுகதை',
+        title: 'படம்',
         images: [
           {
             'url': 'assets/images/story1.png',
-            'description': 'சிறுகதை 1',
+            'title': 'அச்சம்',
+            'description':
+                'அச்சம் என்பது பயம் அல்லது ஒரு ஆபத்து பற்றிய கவலை என்று பொருள்',
           },
           {
             'url': 'assets/images/story2.png',
-            'description': 'சிறுகதை 2',
+            'title': 'அச்சம்',
+            'description':
+                'அச்சம் என்பது பயம் அல்லது ஒரு ஆபத்து பற்றிய கவலை என்று பொருள்',
           },
           {
             'url': 'assets/images/story3.png',
-            'description': 'சிறுகதை 3',
+            'title': 'அச்சம்',
+            'description':
+                'அச்சம் என்பது பயம் அல்லது ஒரு ஆபத்து பற்றிய கவலை என்று பொருள்',
           }
         ],
       ),
       StageModel(
+        level: 4,
         type: StageType.quiz,
         title: 'வினாடி வினா',
         questions: [
@@ -560,6 +621,7 @@ final List<LevelModel> appLevels = [
     name: 'கல்வி',
     stages: [
       StageModel(
+        level: 5,
         type: StageType.thirukural,
         title: 'திருக்குறள்',
         kural:
@@ -568,28 +630,37 @@ final List<LevelModel> appLevels = [
             'எண் மற்றும் எழுத்து இரண்டும் வாழும் உயிர்களுக்கு கண்கள் போன்றவை.',
       ),
       StageModel(
+        level: 5,
         type: StageType.video,
         title: 'வீடியோ',
       ),
       StageModel(
+        level: 5,
         type: StageType.photos,
-        title: 'சிறுகதை',
+        title: 'படம்',
         images: [
           {
             'url': 'assets/images/story1.png',
-            'description': 'சிறுகதை 1',
+            'title': 'அச்சம்',
+            'description':
+                'அச்சம் என்பது பயம் அல்லது ஒரு ஆபத்து பற்றிய கவலை என்று பொருள்',
           },
           {
             'url': 'assets/images/story2.png',
-            'description': 'சிறுகதை 2',
+            'title': 'அச்சம்',
+            'description':
+                'அச்சம் என்பது பயம் அல்லது ஒரு ஆபத்து பற்றிய கவலை என்று பொருள்',
           },
           {
             'url': 'assets/images/story3.png',
-            'description': 'சிறுகதை 3',
+            'title': 'அச்சம்',
+            'description':
+                'அச்சம் என்பது பயம் அல்லது ஒரு ஆபத்து பற்றிய கவலை என்று பொருள்',
           }
         ],
       ),
       StageModel(
+        level: 5,
         type: StageType.quiz,
         title: 'வினாடி வினா',
         questions: [
@@ -620,6 +691,7 @@ final List<LevelModel> appLevels = [
     name: 'அன்புடைமை',
     stages: [
       StageModel(
+        level: 6,
         type: StageType.thirukural,
         title: 'திருக்குறள்',
         kural:
@@ -628,28 +700,37 @@ final List<LevelModel> appLevels = [
             'அன்பு இல்லாதவர்கள் எல்லாவற்றையும் தமக்கே என்பார்கள். அன்பு உடையவர்கள் தம் உடலையும் பிறர்க்கு உரியது என்பார்கள்.',
       ),
       StageModel(
+        level: 6,
         type: StageType.video,
         title: 'வீடியோ',
       ),
       StageModel(
+        level: 6,
         type: StageType.photos,
-        title: 'சிறுகதை',
+        title: 'படம்',
         images: [
           {
             'url': 'assets/images/story1.png',
-            'description': 'சிறுகதை 1',
+            'title': 'அச்சம்',
+            'description':
+                'அச்சம் என்பது பயம் அல்லது ஒரு ஆபத்து பற்றிய கவலை என்று பொருள்',
           },
           {
             'url': 'assets/images/story2.png',
-            'description': 'சிறுகதை 2',
+            'title': 'அச்சம்',
+            'description':
+                'அச்சம் என்பது பயம் அல்லது ஒரு ஆபத்து பற்றிய கவலை என்று பொருள்',
           },
           {
             'url': 'assets/images/story3.png',
-            'description': 'சிறுகதை 3',
+            'title': 'அச்சம்',
+            'description':
+                'அச்சம் என்பது பயம் அல்லது ஒரு ஆபத்து பற்றிய கவலை என்று பொருள்',
           }
         ],
       ),
       StageModel(
+        level: 6,
         type: StageType.quiz,
         title: 'வினாடி வினா',
         questions: [
@@ -680,6 +761,7 @@ final List<LevelModel> appLevels = [
     name: 'வான்சிறப்பு',
     stages: [
       StageModel(
+        level: 7,
         type: StageType.thirukural,
         title: 'திருக்குறள்',
         kural:
@@ -688,28 +770,37 @@ final List<LevelModel> appLevels = [
             'மழை பெய்யாமல் பொய்த்தால், இந்த பரந்த உலகில் பசி வாட்டும்.',
       ),
       StageModel(
+        level: 7,
         type: StageType.video,
         title: 'வீடியோ',
       ),
       StageModel(
+        level: 7,
         type: StageType.photos,
-        title: 'சிறுகதை',
+        title: 'படம்',
         images: [
           {
             'url': 'assets/images/story1.png',
-            'description': 'சிறுகதை 1',
+            'title': 'அச்சம்',
+            'description':
+                'அச்சம் என்பது பயம் அல்லது ஒரு ஆபத்து பற்றிய கவலை என்று பொருள்',
           },
           {
             'url': 'assets/images/story2.png',
-            'description': 'சிறுகதை 2',
+            'title': 'அச்சம்',
+            'description':
+                'அச்சம் என்பது பயம் அல்லது ஒரு ஆபத்து பற்றிய கவலை என்று பொருள்',
           },
           {
             'url': 'assets/images/story3.png',
-            'description': 'சிறுகதை 3',
+            'title': 'அச்சம்',
+            'description':
+                'அச்சம் என்பது பயம் அல்லது ஒரு ஆபத்து பற்றிய கவலை என்று பொருள்',
           }
         ],
       ),
       StageModel(
+        level: 7,
         type: StageType.quiz,
         title: 'வினாடி வினா',
         questions: [
@@ -740,6 +831,7 @@ final List<LevelModel> appLevels = [
     name: 'செய்நன்றி அறிதல்',
     stages: [
       StageModel(
+        level: 8,
         type: StageType.thirukural,
         title: 'திருக்குறள்',
         kural: 'காலத்தி னால்செய்த நன்றி சிறிதுஎனின்\nஞாலத்தின் மாணப் பெரிது',
@@ -747,28 +839,37 @@ final List<LevelModel> appLevels = [
             'சரியான நேரத்தில் செய்யப்படும் உதவி சிறியதாக இருந்தாலும், அதன் மதிப்பு உலகத்தை விட பெரியது.',
       ),
       StageModel(
+        level: 8,
         type: StageType.video,
         title: 'வீடியோ',
       ),
       StageModel(
+        level: 8,
         type: StageType.photos,
-        title: 'சிறுகதை',
+        title: 'படம்',
         images: [
           {
             'url': 'assets/images/story1.png',
-            'description': 'சிறுகதை 1',
+            'title': 'அச்சம்',
+            'description':
+                'அச்சம் என்பது பயம் அல்லது ஒரு ஆபத்து பற்றிய கவலை என்று பொருள்',
           },
           {
             'url': 'assets/images/story2.png',
-            'description': 'சிறுகதை 2',
+            'title': 'அச்சம்',
+            'description':
+                'அச்சம் என்பது பயம் அல்லது ஒரு ஆபத்து பற்றிய கவலை என்று பொருள்',
           },
           {
             'url': 'assets/images/story3.png',
-            'description': 'சிறுகதை 3',
+            'title': 'அச்சம்',
+            'description':
+                'அச்சம் என்பது பயம் அல்லது ஒரு ஆபத்து பற்றிய கவலை என்று பொருள்',
           }
         ],
       ),
       StageModel(
+        level: 8,
         type: StageType.quiz,
         title: 'வினாடி வினா',
         questions: [
@@ -803,6 +904,7 @@ final List<LevelModel> appLevels = [
     name: 'காலம் அறிதல்',
     stages: [
       StageModel(
+        level: 9,
         type: StageType.thirukural,
         title: 'திருக்குறள்',
         kural: 'காலம் கருதி இருப்பர் கலங்காது\nஞாலம் கருது பவர்',
@@ -810,28 +912,37 @@ final List<LevelModel> appLevels = [
             'உலகத்தை வெல்ல நினைப்பவர்கள் சரியான நேரத்திற்காகக் காத்திருப்பார்கள், கலங்க மாட்டார்கள்.',
       ),
       StageModel(
+        level: 9,
         type: StageType.video,
         title: 'வீடியோ',
       ),
       StageModel(
+        level: 9,
         type: StageType.photos,
-        title: 'சிறுகதை',
+        title: 'படம்',
         images: [
           {
             'url': 'assets/images/story1.png',
-            'description': 'சிறுகதை 1',
+            'title': 'அச்சம்',
+            'description':
+                'அச்சம் என்பது பயம் அல்லது ஒரு ஆபத்து பற்றிய கவலை என்று பொருள்',
           },
           {
             'url': 'assets/images/story2.png',
-            'description': 'சிறுகதை 2',
+            'title': 'அச்சம்',
+            'description':
+                'அச்சம் என்பது பயம் அல்லது ஒரு ஆபத்து பற்றிய கவலை என்று பொருள்',
           },
           {
             'url': 'assets/images/story3.png',
-            'description': 'சிறுகதை 3',
+            'title': 'அச்சம்',
+            'description':
+                'அச்சம் என்பது பயம் அல்லது ஒரு ஆபத்து பற்றிய கவலை என்று பொருள்',
           }
         ],
       ),
       StageModel(
+        level: 9,
         type: StageType.quiz,
         title: 'வினாடி வினா',
         questions: [
@@ -866,6 +977,7 @@ final List<LevelModel> appLevels = [
     name: 'இனியவை கூறல்',
     stages: [
       StageModel(
+        level: 10,
         type: StageType.thirukural,
         title: 'திருக்குறள்',
         kural: 'இனிய உளவாக இன்னாத கூறல்\nகனிஇருப்பக் காய் கவர்ந் தற்று',
@@ -873,28 +985,37 @@ final List<LevelModel> appLevels = [
             'இனிய சொற்கள் இருக்கும்போது, துன்பம் தரும் சொற்களைப் பேசுவது, கனி இருக்கும்போது காயை உண்பது போன்றது.',
       ),
       StageModel(
+        level: 10,
         type: StageType.video,
         title: 'வீடியோ',
       ),
       StageModel(
+        level: 10,
         type: StageType.photos,
-        title: 'சிறுகதை',
+        title: 'படம்',
         images: [
           {
             'url': 'assets/images/story1.png',
-            'description': 'சிறுகதை 1',
+            'title': 'அச்சம்',
+            'description':
+                'அச்சம் என்பது பயம் அல்லது ஒரு ஆபத்து பற்றிய கவலை என்று பொருள்',
           },
           {
             'url': 'assets/images/story2.png',
-            'description': 'சிறுகதை 2',
+            'title': 'அச்சம்',
+            'description':
+                'அச்சம் என்பது பயம் அல்லது ஒரு ஆபத்து பற்றிய கவலை என்று பொருள்',
           },
           {
             'url': 'assets/images/story3.png',
-            'description': 'சிறுகதை 3',
+            'title': 'அச்சம்',
+            'description':
+                'அச்சம் என்பது பயம் அல்லது ஒரு ஆபத்து பற்றிய கவலை என்று பொருள்',
           }
         ],
       ),
       StageModel(
+        level: 10,
         type: StageType.quiz,
         title: 'வினாடி வினா',
         questions: [

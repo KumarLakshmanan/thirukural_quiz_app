@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:quiz_app/constants.dart';
+import 'package:quiz_app/models/Questions.dart';
 import 'package:video_player/video_player.dart';
+import 'package:chewie/chewie.dart';
 
 class VideoScreen extends StatefulWidget {
-  final String videoUrl;
-  final String title;
+  final StageModel stage;
 
   const VideoScreen({
     Key? key,
-    required this.videoUrl,
-    required this.title,
+    required this.stage,
   }) : super(key: key);
 
   @override
@@ -18,20 +18,26 @@ class VideoScreen extends StatefulWidget {
 }
 
 class _VideoScreenState extends State<VideoScreen> {
-  late VideoPlayerController _controller;
-  late Future<void> _initializeVideoPlayerFuture;
+  late VideoPlayerController _videoPlayerController;
+  ChewieController? _chewieController;
 
   @override
   void initState() {
     super.initState();
-    _controller = VideoPlayerController.network(widget.videoUrl);
-    _initializeVideoPlayerFuture = _controller.initialize();
-    _controller.setLooping(true);
+    _videoPlayerController = VideoPlayerController.asset(
+      "assets/video/1.mp4",
+    );
+    _chewieController = ChewieController(
+      videoPlayerController: _videoPlayerController,
+      looping: true,
+      autoPlay: false,
+    );
   }
 
   @override
   void dispose() {
-    _controller.dispose();
+    _videoPlayerController.dispose();
+    _chewieController?.dispose();
     super.dispose();
   }
 
@@ -48,7 +54,7 @@ class _VideoScreenState extends State<VideoScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    widget.title,
+                    widget.stage.title,
                     style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
@@ -57,42 +63,13 @@ class _VideoScreenState extends State<VideoScreen> {
                   SizedBox(height: kDefaultPadding),
                   Expanded(
                     child: Center(
-                      child: FutureBuilder(
-                        future: _initializeVideoPlayerFuture,
-                        builder: (context, snapshot) {
-                          if (snapshot.connectionState == ConnectionState.done) {
-                            return AspectRatio(
-                              aspectRatio: _controller.value.aspectRatio,
-                              child: Stack(
-                                alignment: Alignment.center,
-                                children: [
-                                  VideoPlayer(_controller),
-                                  FloatingActionButton(
-                                    onPressed: () {
-                                      setState(() {
-                                        if (_controller.value.isPlaying) {
-                                          _controller.pause();
-                                        } else {
-                                          _controller.play();
-                                        }
-                                      });
-                                    },
-                                    child: Icon(
-                                      _controller.value.isPlaying
-                                          ? Icons.pause
-                                          : Icons.play_arrow,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            );
-                          } else {
-                            return Center(
+                      child: _chewieController != null &&
+                              _chewieController!.videoPlayerController.value
+                                  .isInitialized
+                          ? Chewie(controller: _chewieController!)
+                          : Center(
                               child: CircularProgressIndicator(),
-                            );
-                          }
-                        },
-                      ),
+                            ),
                     ),
                   ),
                 ],

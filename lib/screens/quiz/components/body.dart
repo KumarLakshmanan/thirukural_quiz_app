@@ -3,13 +3,11 @@ import 'package:quiz_app/constants.dart';
 import 'package:flutter_svg/svg.dart';
 
 import 'package:quiz_app/models/Questions.dart';
-import 'progress_bar.dart';
 import 'question_card.dart';
 
 class Body extends StatelessWidget {
   final List<Question> questions;
   final int currentIndex;
-  final Animation<double> animation;
   final Function(int) onAnswerSelected;
   final int? selectedAnswer;
   final PageController pageController;
@@ -18,7 +16,6 @@ class Body extends StatelessWidget {
     super.key,
     required this.questions,
     required this.currentIndex,
-    required this.animation,
     required this.onAnswerSelected,
     this.selectedAnswer,
     required this.pageController,
@@ -33,11 +30,6 @@ class Body extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: kDefaultPadding),
-                child: ProgressBar(animation: animation),
-              ),
               SizedBox(height: kDefaultPadding),
               Padding(
                 padding:
@@ -72,6 +64,16 @@ class Body extends StatelessWidget {
                     question: questions[index],
                     onAnswerSelected: onAnswerSelected,
                     selectedAnswer: selectedAnswer,
+                    onNextQuestion: () {
+                      if (currentIndex < questions.length - 1) {
+                        pageController.nextPage(
+                          duration: Duration(milliseconds: 250),
+                          curve: Curves.ease,
+                        );
+                      } else {
+                        Navigator.pop(context);
+                      }
+                    },
                   ),
                 ),
               ),

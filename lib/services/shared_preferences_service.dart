@@ -60,4 +60,8 @@ class SharedPreferencesService {
     final key = '${_stageCompletionKey}_${levelIndex}_$stageIndex';
     return prefs.getBool(key) ?? false;
   }
+  static Future<bool> clearUserData() async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.clear();
+  }
 }
