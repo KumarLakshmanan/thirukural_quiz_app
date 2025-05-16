@@ -1,4 +1,8 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:http/http.dart' as http;
 
 import 'package:quiz_app/constants.dart';
 import 'package:quiz_app/models/Questions.dart';
@@ -25,9 +29,27 @@ class _VideoScreenState extends State<VideoScreen> {
   @override
   void initState() {
     super.initState();
-    _videoPlayerController = VideoPlayerController.asset(
-      "assets/video/1.mp4",
-    )..initialize().then((_) {
+    _initializeVideo();
+  }
+
+  Future<void> _initializeVideo() async {
+    final cacheDir = await getTemporaryDirectory();
+    final videoFile = File('${cacheDir.path}/${widget.stage.level}.mp4');
+
+    if (!await videoFile.exists()) {
+      final videoUrl =
+          "https://codingfrontend.in/assets/thirukural/video/${widget.stage.level}.mp4";
+      final response = await http.get(Uri.parse(videoUrl));
+
+      if (response.statusCode == 200) {
+        await videoFile.writeAsBytes(response.bodyBytes);
+      } else {
+        return;
+      }
+    }
+
+    _videoPlayerController = VideoPlayerController.file(videoFile)
+      ..initialize().then((_) {
         setState(() {
           _isVideoInitialized = true;
           _chewieController = ChewieController(
@@ -53,7 +75,7 @@ class _VideoScreenState extends State<VideoScreen> {
         children: [
           Container(
             decoration: BoxDecoration(
-              color: Color(0xFF252c4a).withValues(alpha: 0.5),
+              color: Color(0xFF252c4a).withOpacity(0.5),
               image: DecorationImage(
                 image: AssetImage("assets/icons/bg.png"),
                 opacity: 0.2,
@@ -84,7 +106,7 @@ class _VideoScreenState extends State<VideoScreen> {
                         height: constraints.maxWidth * 9 / 16,
                         child: _isVideoInitialized
                             ? Chewie(controller: _chewieController!)
-                            : CircularProgressIndicator(),
+                            : Center(child: CircularProgressIndicator()),
                       );
                     }),
                   ),

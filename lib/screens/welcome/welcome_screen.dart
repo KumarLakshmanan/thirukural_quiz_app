@@ -121,10 +121,12 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                       firstDate: DateTime(1900),
                       lastDate: DateTime.now(),
                     );
+                    print("Picked date: ${picked?.toIso8601String()}");
                     if (picked != null) {
                       dobController.text =
                           "${picked.day}/${picked.month}/${picked.year}";
                     }
+                    setState(() {});
                   },
                   child: Container(
                     padding: EdgeInsets.symmetric(horizontal: 12, vertical: 16),

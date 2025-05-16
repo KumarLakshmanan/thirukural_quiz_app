@@ -20,311 +20,6 @@ final List<String> stages = [
   'வினாடி வினா',
 ];
 
-List sample_data = [
-  {
-    "id": 1,
-    "answer_index": 0,
-    "question": "நல்ல செயல், கெட்ட செயல் வித்தியாசம் / வேறுபாடு என்ன?",
-    "options": ["விருப்பம் 1", "விருப்பம் 2", "விருப்பம் 3", "விருப்பம் 4"]
-  },
-  {
-    "id": 2,
-    "answer_index": 0,
-    "question": "ஏன் நல்லது செய்ய வேண்டும்?",
-    "options": ["விருப்பம் 1", "விருப்பம் 2", "விருப்பம் 3", "விருப்பம் 4"]
-  },
-  {
-    "id": 3,
-    "answer_index": 0,
-    "question": "கெட்டவருக்கு ஏன் நல்லது செய்ய வேண்டும்?",
-    "options": ["விருப்பம் 1", "விருப்பம் 2", "விருப்பம் 3", "விருப்பம் 4"]
-  },
-  {
-    "id": 4,
-    "answer_index": 0,
-    "question": "நல்ல செயல் செய்வதால் நமக்கு என்ன பயன்?",
-    "options": ["விருப்பம் 1", "விருப்பம் 2", "விருப்பம் 3", "விருப்பம் 4"]
-  },
-  {
-    "id": 5,
-    "answer_index": 0,
-    "question": "மற்றவர் எப்போது நம்மைப் பாராட்டுவர்?",
-    "options": ["விருப்பம் 1", "விருப்பம் 2", "விருப்பம் 3", "விருப்பம் 4"]
-  },
-  {
-    "id": 6,
-    "answer_index": 0,
-    "question": "நமக்கு ஏன் பணம் தேவை?",
-    "options": ["விருப்பம் 1", "விருப்பம் 2", "விருப்பம் 3", "விருப்பம் 4"]
-  },
-  {
-    "id": 7,
-    "answer_index": 0,
-    "question": "நாம் ஏன் வேலைக்குச் செல்கிறோம்?",
-    "options": ["விருப்பம் 1", "விருப்பம் 2", "விருப்பம் 3", "விருப்பம் 4"]
-  },
-  {
-    "id": 8,
-    "answer_index": 0,
-    "question": "நாம் ஏன் பணத்தை சேமிக்க வேண்டும்?",
-    "options": ["விருப்பம் 1", "விருப்பம் 2", "விருப்பம் 3", "விருப்பம் 4"]
-  },
-  {
-    "id": 9,
-    "answer_index": 0,
-    "question": "பணம் எப்படி நமது வாழ்க்கைக்கு உதவுகிறது?",
-    "options": ["விருப்பம் 1", "விருப்பம் 2", "விருப்பம் 3", "விருப்பம் 4"]
-  },
-  {
-    "id": 10,
-    "answer_index": 0,
-    "question": "பணம் இல்லையெனில் பூமிதனில் நமது வாழ்வு எப்படியிருக்கும்?",
-    "options": ["விருப்பம் 1", "விருப்பம் 2", "விருப்பம் 3", "விருப்பம் 4"]
-  },
-  {
-    "id": 11,
-    "answer_index": 0,
-    "question": "பொய் - பொருள் என்ன?",
-    "options": ["விருப்பம் 1", "விருப்பம் 2", "விருப்பம் 3", "விருப்பம் 4"]
-  },
-  {
-    "id": 12,
-    "answer_index": 0,
-    "question": "உண்மையால் வரும் இலாபம் என்ன?",
-    "options": ["விருப்பம் 1", "விருப்பம் 2", "விருப்பம் 3", "விருப்பம் 4"]
-  },
-  {
-    "id": 13,
-    "answer_index": 0,
-    "question": "பொய் சொல்லுவதால் வரும் நட்டம் என்ன?",
-    "options": ["விருப்பம் 1", "விருப்பம் 2", "விருப்பம் 3", "விருப்பம் 4"]
-  },
-  {
-    "id": 14,
-    "answer_index": 0,
-    "question": "உலகத்தார் யாரை போற்றுவர்?",
-    "options": ["விருப்பம் 1", "விருப்பம் 2", "விருப்பம் 3", "விருப்பம் 4"]
-  },
-  {
-    "id": 15,
-    "answer_index": 0,
-    "question": "உலகத்தார் யாரைத் தூற்றுவர்?",
-    "options": ["விருப்பம் 1", "விருப்பம் 2", "விருப்பம் 3", "விருப்பம் 4"]
-  },
-  {
-    "id": 16,
-    "answer_index": 0,
-    "question": "நல்ல பண்புகளின் அவசியம் என்ன?",
-    "options": ["விருப்பம் 1", "விருப்பம் 2", "விருப்பம் 3", "விருப்பம் 4"]
-  },
-  {
-    "id": 17,
-    "answer_index": 0,
-    "question": "நல்ல பண்புகள், கெட்ட பண்புகள் வித்தியாசம் என்ன?",
-    "options": ["விருப்பம் 1", "விருப்பம் 2", "விருப்பம் 3", "விருப்பம் 4"]
-  },
-  {
-    "id": 18,
-    "answer_index": 0,
-    "question": "உலகம் யாரை மதிக்கும்?",
-    "options": ["விருப்பம் 1", "விருப்பம் 2", "விருப்பம் 3", "விருப்பம் 4"]
-  },
-  {
-    "id": 19,
-    "answer_index": 0,
-    "question": "நமக்கு நல்ல பண்புகள் பயன் தருமா?",
-    "options": ["விருப்பம் 1", "விருப்பம் 2", "விருப்பம் 3", "விருப்பம் 4"]
-  },
-  {
-    "id": 20,
-    "answer_index": 0,
-    "question":
-        "உங்களுக்கு நல்ல பண்புகள் உள்ள மனிதர், நாட்டின் தலைவர் யாரேனும் தெரியுமா?",
-    "options": ["விருப்பம் 1", "விருப்பம் 2", "விருப்பம் 3", "விருப்பம் 4"]
-  },
-  {
-    "id": 21,
-    "answer_index": 0,
-    "question": "ஏன் எழுத்துக்களைக் கற்றுக் கொள்ள வேண்டும்?",
-    "options": ["விருப்பம் 1", "விருப்பம் 2", "விருப்பம் 3", "விருப்பம் 4"]
-  },
-  {
-    "id": 22,
-    "answer_index": 0,
-    "question": "நீ உனது பெயரை எப்படி எழுதுகிறாய்?",
-    "options": ["விருப்பம் 1", "விருப்பம் 2", "விருப்பம் 3", "விருப்பம் 4"]
-  },
-  {
-    "id": 23,
-    "answer_index": 0,
-    "question": "எண்களின் பயன் என்ன?",
-    "options": ["விருப்பம் 1", "விருப்பம் 2", "விருப்பம் 3", "விருப்பம் 4"]
-  },
-  {
-    "id": 24,
-    "answer_index": 0,
-    "question": "உனது ஊருக்குச் செல்லும் பேருந்தை எப்படிக் கண்டுபிடிப்பாய்?",
-    "options": ["விருப்பம் 1", "விருப்பம் 2", "விருப்பம் 3", "விருப்பம் 4"]
-  },
-  {
-    "id": 25,
-    "answer_index": 0,
-    "question": "பணத்தின் மதிப்பை எப்படித் தெரிந்து கொள்வாய்?",
-    "options": ["விருப்பம் 1", "விருப்பம் 2", "விருப்பம் 3", "விருப்பம் 4"]
-  },
-  {
-    "id": 26,
-    "answer_index": 0,
-    "question": "யார் நம்மிடம் மிக அன்பாக இருப்பர்?",
-    "options": ["விருப்பம் 1", "விருப்பம் 2", "விருப்பம் 3", "விருப்பம் 4"]
-  },
-  {
-    "id": 27,
-    "answer_index": 0,
-    "question": "அம்மா, அப்பா தவிர வேறு யார் நம்மிடம் அன்பு செலுத்துகிறார்கள்?",
-    "options": ["விருப்பம் 1", "விருப்பம் 2", "விருப்பம் 3", "விருப்பம் 4"]
-  },
-  {
-    "id": 28,
-    "answer_index": 0,
-    "question": "உலகத்தார் அதிகமாக விரும்புவது அன்பா? அல்லது பணமா?",
-    "options": ["விருப்பம் 1", "விருப்பம் 2", "விருப்பம் 3", "விருப்பம் 4"]
-  },
-  {
-    "id": 29,
-    "answer_index": 0,
-    "question": "வீட்டு விலங்குகளை நாம் எப்படி நடத்த வேண்டும்?",
-    "options": ["விருப்பம் 1", "விருப்பம் 2", "விருப்பம் 3", "விருப்பம் 4"]
-  },
-  {
-    "id": 30,
-    "answer_index": 0,
-    "question": "வீட்டிற்கு வந்தவரை நாம் எப்படி வரவேற்க வேண்டும்?",
-    "options": ["விருப்பம் 1", "விருப்பம் 2", "விருப்பம் 3", "விருப்பம் 4"]
-  },
-  {
-    "id": 31,
-    "answer_index": 0,
-    "question": "தண்ணீர் இல்லாமல் நாம் இங்கு வாழ முடியுமா?",
-    "options": ["விருப்பம் 1", "விருப்பம் 2", "விருப்பம் 3", "விருப்பம் 4"]
-  },
-  {
-    "id": 32,
-    "answer_index": 0,
-    "question": "பசியை போக்க நமக்கு என்ன தேவை?",
-    "options": ["விருப்பம் 1", "விருப்பம் 2", "விருப்பம் 3", "விருப்பம் 4"]
-  },
-  {
-    "id": 33,
-    "answer_index": 0,
-    "question": "உணவு சமைக்க என்ன பொருள்கள் எல்லாம் தேவை?",
-    "options": ["விருப்பம் 1", "விருப்பம் 2", "விருப்பம் 3", "விருப்பம் 4"]
-  },
-  {
-    "id": 34,
-    "answer_index": 0,
-    "question": "கடல் நீரைக் குடிக்க முடியுமா?",
-    "options": ["விருப்பம் 1", "விருப்பம் 2", "விருப்பம் 3", "விருப்பம் 4"]
-  },
-  {
-    "id": 35,
-    "answer_index": 0,
-    "question": "உணவையும், தண்ணீரையும் வீணாக்கலாமா?",
-    "options": ["விருப்பம் 1", "விருப்பம் 2", "விருப்பம் 3", "விருப்பம் 4"]
-  },
-  {
-    "id": 36,
-    "answer_index": 0,
-    "question": "நன்றி என்பது என்ன?",
-    "options": ["விருப்பம் 1", "விருப்பம் 2", "விருப்பம் 3", "விருப்பம் 4"]
-  },
-  {
-    "id": 37,
-    "answer_index": 0,
-    "question": "ஏன் மற்றவர் செய்த உதவியை மறக்கக் கூடாது?",
-    "options": ["விருப்பம் 1", "விருப்பம் 2", "விருப்பம் 3", "விருப்பம் 4"]
-  },
-  {
-    "id": 38,
-    "answer_index": 0,
-    "question": "செய்த நன்றியை மறந்தால் என்னவாகும்?",
-    "options": ["விருப்பம் 1", "விருப்பம் 2", "விருப்பம் 3", "விருப்பம் 4"]
-  },
-  {
-    "id": 39,
-    "answer_index": 0,
-    "question": "பிறர் செய்த தீமையை மறக்காலமா?",
-    "options": ["விருப்பம் 1", "விருப்பம் 2", "விருப்பம் 3", "விருப்பம் 4"]
-  },
-  {
-    "id": 40,
-    "answer_index": 0,
-    "question":
-        "பிறர் உனக்கு உதவி செய்யாவிட்டாலும், நீ மற்றவர்க்கும் உதவி செய்வாயா?",
-    "options": ["விருப்பம் 1", "விருப்பம் 2", "விருப்பம் 3", "விருப்பம் 4"]
-  },
-  {
-    "id": 41,
-    "answer_index": 0,
-    "question": "ஏன் காலமறிந்து செயல்பட வேண்டும்?",
-    "options": ["விருப்பம் 1", "விருப்பம் 2", "விருப்பம் 3", "விருப்பம் 4"]
-  },
-  {
-    "id": 42,
-    "answer_index": 0,
-    "question": "காலம் தாழ்த்தினால் வெற்றி கிடைக்குமா?",
-    "options": ["விருப்பம் 1", "விருப்பம் 2", "விருப்பம் 3", "விருப்பம் 4"]
-  },
-  {
-    "id": 43,
-    "answer_index": 0,
-    "question": "கொக்கின் செயல்பாட்டில் கவனச் சிதறல் உள்ளதா?",
-    "options": ["விருப்பம் 1", "விருப்பம் 2", "விருப்பம் 3", "விருப்பம் 4"]
-  },
-  {
-    "id": 44,
-    "answer_index": 0,
-    "question": "காலம் அறிந்து செயல்படாமல் போனால் யாருக்கு வீண் நட்டம்?",
-    "options": ["விருப்பம் 1", "விருப்பம் 2", "விருப்பம் 3", "விருப்பம் 4"]
-  },
-  {
-    "id": 45,
-    "answer_index": 0,
-    "question": "கவனச் சிதறல் ஏற்பட்டால் என்னவாகும்?",
-    "options": ["விருப்பம் 1", "விருப்பம் 2", "விருப்பம் 3", "விருப்பம் 4"]
-  },
-  {
-    "id": 46,
-    "answer_index": 0,
-    "question": "நாம் மற்றவரிடம் எப்படி பேச வேண்டும்?",
-    "options": ["விருப்பம் 1", "விருப்பம் 2", "விருப்பம் 3", "விருப்பம் 4"]
-  },
-  {
-    "id": 47,
-    "answer_index": 0,
-    "question": "இனிமையில்லாத சொல்லினால் பலன் உண்டா?",
-    "options": ["விருப்பம் 1", "விருப்பம் 2", "விருப்பம் 3", "விருப்பம் 4"]
-  },
-  {
-    "id": 48,
-    "answer_index": 0,
-    "question": "நட்பு உருவாவதற்கு இன்சொல் தேவையா?",
-    "options": ["விருப்பம் 1", "விருப்பம் 2", "விருப்பம் 3", "விருப்பம் 4"]
-  },
-  {
-    "id": 49,
-    "answer_index": 0,
-    "question": "இனிய சுவை தருவது காயா? கனியா?",
-    "options": ["விருப்பம் 1", "விருப்பம் 2", "விருப்பம் 3", "விருப்பம் 4"]
-  },
-  {
-    "id": 50,
-    "answer_index": 0,
-    "question": "நீண்ட கால உறவை இனிய சொல் வளப்படுத்துமா?",
-    "options": ["விருப்பம் 1", "விருப்பம் 2", "விருப்பம் 3", "விருப்பம் 4"]
-  }
-];
-
 final List<LevelModel> appLevels = [
   LevelModel(
     index: 0,
@@ -349,11 +44,29 @@ final List<LevelModel> appLevels = [
         level: 1,
         images: [
           {
-            'url': 'assets/icons/story1.png',
-            'title': 'அச்சம்',
-            'description':
-                'அச்சம் என்பது பயம் அல்லது ஒரு ஆபத்து பற்றிய கவலை என்று பொருள்',
-          }
+            "image_description":
+                "A child teasing another child and making them cry in a school playground.",
+            'url': 'images/1-1.jpeg',
+            'title': "இன்னா",
+            'explanation':
+                "தீங்கு தருபவை (Theengu Tharubavai) - துன்பத்தை/வலியை/தீங்கை ஏற்படுத்துவது"
+          },
+          {
+            "image_description":
+                "A teacher kindly explaining to a student why bullying is wrong, while others watch.",
+            'url': 'images/1-2.jpeg',
+            'title': "ஒறுத்தல்",
+            'explanation':
+                "தண்டித்தல் (Thandiththal) - தீங்கு செய்தவருக்குத் தண்டனை கொடுப்பது."
+          },
+          {
+            "image_description":
+                "A child helping an old lady cross the road with a smile.",
+            'url': 'images/1-3.jpeg',
+            'title': "நன்னயம்",
+            'explanation':
+                "நன்மையான செயல் (Nanmaiyaana Seyal) - நல்ல மற்றும் பயனுள்ள செயல்."
+          },
         ],
       ),
       StageModel(
@@ -411,11 +124,28 @@ final List<LevelModel> appLevels = [
         level: 2,
         images: [
           {
-            'url': 'assets/icons/story1.png',
-            'title': 'அச்சம்',
-            'description':
-                'அச்சம் என்பது பயம் அல்லது ஒரு ஆபத்து பற்றிய கவலை என்று பொருள்',
-          }
+            "image_description":
+                "A boy sharing his umbrella with a puppy in the rain.",
+            'url': 'images/2-1.jpeg',
+            'title': "அருள்",
+            'explanation': "கருணை (Karunai) - இரக்கம், தயவு."
+          },
+          {
+            "image_description":
+                "A glowing, peaceful place in the clouds with happy people and angels, showing ‘heaven’ gently.",
+            'url': 'images/2-2.jpeg',
+            'title': "அவ்வுலகம்",
+            'explanation':
+                "அந்த உலகம் (Antha Ulagam) - இறந்த பிறகு செல்லும் உலகம்."
+          },
+          {
+            "image_description":
+                "Two kids thinking which path to take: one is full of flowers, the other has thorns.",
+            'url': 'images/2-3.jpeg',
+            'title': "யாங்கு",
+            'explanation':
+                "எப்படி (Eppadi) - எவ்வாறு, ஒப்பிடுவதற்குப் பயன்படுத்தப்படும் சொல்."
+          },
         ],
       ),
       StageModel(
@@ -472,11 +202,28 @@ final List<LevelModel> appLevels = [
         title: 'படம்',
         images: [
           {
-            'url': 'assets/icons/story1.png',
-            'title': 'அச்சம்',
-            'description':
-                'அச்சம் என்பது பயம் அல்லது ஒரு ஆபத்து பற்றிய கவலை என்று பொருள்',
-          }
+            "image_description":
+                "A child returning a lost wallet to the teacher, even when no one was watching.",
+            'url': 'images/3-1.jpeg',
+            'title': "பொய்யாது",
+            'explanation': "பொய் சொல்லாமல் (Poi Sollaamal) - உண்மை பேசுவது."
+          },
+          {
+            "image_description":
+                "A child helping a friend in need and refusing to lie, showing good behavior.",
+            'url': 'images/3-2.jpeg',
+            'title': "ஒழுகின்",
+            'explanation':
+                "நடந்தால் (Nadanthaal) - ஒரு குறிப்பிட்ட வழியில் வாழ்ந்தால்."
+          },
+          {
+            "image_description":
+                "Children from different countries holding hands and smiling.",
+            'url': 'images/3-3.jpeg',
+            'title': "உலகத்தார்",
+            'explanation':
+                "உலக மக்கள் (Ulaga Makkal) - பூமியில் வாழும் மனிதர்கள்."
+          },
         ],
       ),
       StageModel(
@@ -530,11 +277,28 @@ final List<LevelModel> appLevels = [
         title: 'படம்',
         images: [
           {
-            'url': 'assets/icons/story1.png',
-            'title': 'அச்சம்',
-            'description':
-                'அச்சம் என்பது பயம் அல்லது ஒரு ஆபத்து பற்றிய கவலை என்று பொருள்',
-          }
+            "image_description":
+                "A kind student sharing food and books with others.",
+            'url': 'images/4-1.jpeg',
+            'title': "பண்புடையார்",
+            'explanation':
+                "நல்ல குணம் உடையவர் (Nalla Gunam Udaiyavar) - சிறந்த நற்குணங்களைக் கொண்டவர்கள்."
+          },
+          {
+            "image_description":
+                "A tree giving shade to children sitting under it — it helps because it stands strong.",
+            'url': 'images/4-2.jpeg',
+            'title': "பட்டுண்டு",
+            'explanation': "இருப்பதால் (Iruppathaal) - கொண்டிருப்பதால்."
+          },
+          {
+            "image_description":
+                "An ice cream melting under the sun, teaching things don’t last forever.",
+            'url': 'images/4-3.jpeg',
+            'title': "மாயுது",
+            'explanation':
+                "அழிந்துவிடும் (Azhinthuvidum) - இல்லாமல் போய்விடும்."
+          },
         ],
       ),
       StageModel(
@@ -592,11 +356,27 @@ final List<LevelModel> appLevels = [
         title: 'படம்',
         images: [
           {
-            'url': 'assets/icons/story1.png',
-            'title': 'அச்சம்',
-            'description':
-                'அச்சம் என்பது பயம் அல்லது ஒரு ஆபத்து பற்றிய கவலை என்று பொருள்',
-          }
+            "image_description":
+                "Children happily solving math problems on a blackboard.",
+            'url': 'images/5-1.jpeg',
+            'title': "எண்",
+            'explanation': "எண்ணிக்கை (Ennikkai) - கணிதம்."
+          },
+          {
+            "image_description":
+                "Tamil letters flying from a book as children read together.",
+            'url': 'images/5-2.jpeg',
+            'title': "எழுத்து",
+            'explanation': "இலக்கியம் (Ilakkiyam) - மொழியின் அடிப்படை."
+          },
+          {
+            "image_description":
+                "A child feeding birds and watering plants, showing love for life.",
+            'url': 'images/5-3.jpeg',
+            'title': "உயிர்க்கு",
+            'explanation':
+                "வாழும் ஜீவனுக்கு (Vaazhum Jeevanukku) - உயிர் உள்ளவனுக்கு."
+          },
         ],
       ),
       StageModel(
@@ -650,11 +430,28 @@ final List<LevelModel> appLevels = [
         title: 'படம்',
         images: [
           {
-            'url': 'assets/icons/story1.png',
-            'title': 'அச்சம்',
-            'description':
-                'அச்சம் என்பது பயம் அல்லது ஒரு ஆபத்து பற்றிய கவலை என்று பொருள்',
-          }
+            "image_description":
+                "Someone ignoring a hurt kitten while others walk by.",
+            'url': 'images/6-1.jpeg',
+            'title': "அன்பிலார்",
+            'explanation':
+                "அன்பு இல்லாதவர் (Anbu Illaadhavar) - பாசம் இல்லாதவர்கள்."
+          },
+          {
+            "image_description":
+                "A cartoon body shown with bones inside, to explain ‘the whole body’.",
+            'url': 'images/6-2.jpeg',
+            'title': "என்பும்",
+            'explanation':
+                "உடம்பும் (Udambum) - எலும்பும் சேர்த்து, அதாவது முழு உடம்பும்."
+          },
+          {
+            "image_description":
+                "A child hugging their parents and grandparents happily.",
+            'url': 'images/6-3.jpeg',
+            'title': "உரியர்",
+            'explanation': "சொந்தமானவர் (Sonthamaanavar) - உரியவர்கள்."
+          },
         ],
       ),
       StageModel(
@@ -708,11 +505,26 @@ final List<LevelModel> appLevels = [
         title: 'படம்',
         images: [
           {
-            'url': 'assets/icons/story1.png',
-            'title': 'அச்சம்',
-            'description':
-                'அச்சம் என்பது பயம் அல்லது ஒரு ஆபத்து பற்றிய கவலை என்று பொருள்',
-          }
+            "image_description":
+                "A child feeling sad after their friend lied and didn’t keep a promise.",
+            'url': 'images/7-1.jpeg',
+            'title': "பொய்ப்பின்",
+            'explanation': "தவறினால் (Thavarinaal) - பெய்யாமல் ஏமாற்றினால்."
+          },
+          {
+            "image_description":
+                "Children looking at a big blue ocean with ships and birds.",
+            'url': 'images/7-2.jpeg',
+            'title': "விரிநீர்",
+            'explanation': "பரந்த நீர் (Parantha Neer) - பெரிய கடல்."
+          },
+          {
+            "image_description":
+                "A child crying after being left out of a group game.",
+            'url': 'images/7-3.jpeg',
+            'title': "உடற்றும்",
+            'explanation': "வருத்தும் (Varuththum) - துன்புறுத்தும்."
+          },
         ],
       ),
       StageModel(
@@ -765,11 +577,27 @@ final List<LevelModel> appLevels = [
         title: 'படம்',
         images: [
           {
-            'url': 'assets/icons/story1.png',
-            'title': 'அச்சம்',
-            'description':
-                'அச்சம் என்பது பயம் அல்லது ஒரு ஆபத்து பற்றிய கவலை என்று பொருள்',
-          }
+            "image_description":
+                "A child looking confused after forgetting their school bag.",
+            'url': 'images/8-1.jpeg',
+            'title': "மறப்பது",
+            'explanation':
+                "நினைவில் கொள்ளாமல் இருப்பது (Ninaivil Kollaamal Iruppathu) - மறந்துவிடுவது."
+          },
+          {
+            "image_description":
+                "A child stealing candy while others look shocked.",
+            'url': 'images/8-2.jpeg',
+            'title': "நன்றன்று",
+            'explanation': "நல்லது அன்று (Nallathu Anru) - தீயது."
+          },
+          {
+            "image_description":
+                "A kid throwing garbage on the road while others plant trees.",
+            'url': 'images/8-3.jpeg',
+            'title': "நன்றல்லது",
+            'explanation': "தீய செயல் (Theeya Seyal) - கெட்டது."
+          },
         ],
       ),
       StageModel(
@@ -826,11 +654,27 @@ final List<LevelModel> appLevels = [
         title: 'படம்',
         images: [
           {
-            'url': 'assets/icons/story1.png',
-            'title': 'அச்சம்',
-            'description':
-                'அச்சம் என்பது பயம் அல்லது ஒரு ஆபத்து பற்றிய கவலை என்று பொருள்',
-          }
+            "image_description":
+                "A white crane standing still in a pond, looking graceful.",
+            'url': 'images/9-1.jpeg',
+            'title': "கொக்கொக்க",
+            'explanation': "கொக்கு போல (Kokkokka) - ஒரு வகை நீர்ப்பறவை போல."
+          },
+          {
+            "image_description":
+                "A group of birds sitting quietly on a tree at sunset.",
+            'url': 'images/9-2.jpeg',
+            'title': "கூம்பும்",
+            'explanation':
+                "காத்திருக்கும் (Kaaththirukkum) - அமைதியாக இருக்கும்."
+          },
+          {
+            "image_description":
+                "A child wearing clean uniform and standing ready for school assembly.",
+            'url': 'images/9-3.jpeg',
+            'title': "சீர்த்த",
+            'explanation': "தகுந்த (Thaguntha) - சரியான."
+          },
         ],
       ),
       StageModel(
@@ -887,11 +731,28 @@ final List<LevelModel> appLevels = [
         title: 'படம்',
         images: [
           {
-            'url': 'assets/icons/story1.png',
-            'title': 'அச்சம்',
-            'description':
-                'அச்சம் என்பது பயம் அல்லது ஒரு ஆபத்து பற்றிய கவலை என்று பொருள்',
-          }
+            "image_description":
+                "A smiling child giving a flower to a sad friend to cheer them up.",
+            'url': 'images/10-1.jpeg',
+            'title': "இனிய",
+            'explanation': "இனிமையான (Inimaiyana) - நல்ல."
+          },
+          {
+            "image_description":
+                "A child sharing their toys happily with others while saying ‘Let’s play together!’",
+            'url': 'images/10-2.jpeg',
+            'title': "உளவாக",
+            'explanation':
+                "இருக்கும்போது (Irukkumpothu) - கிடைக்கப் பெற்றிருக்கும்போது."
+          },
+          {
+            "image_description":
+                "A curious child reaching for a glowing magical book in a library.",
+            'url': 'images/10-3.jpeg',
+            'title': "கவர்ந்தற்று",
+            'explanation':
+                "கவர்ந்தது போன்றது (Kavarnthathu Pondrathu) - எடுத்துக்கொண்டது போல."
+          },
         ],
       ),
       StageModel(
