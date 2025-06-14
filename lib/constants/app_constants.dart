@@ -67,6 +67,14 @@ final List<LevelModel> appLevels = [
             'explanation':
                 "நன்மையான செயல் (Nanmaiyaana Seyal) - நல்ல மற்றும் பயனுள்ள செயல்."
           },
+          {
+            "image_description":
+                "A indian child embarrassed & hides her face after being kindly corrected.",
+            'url': 'images/1-4.jpeg',
+            'title': "நாண",
+            'explanation':
+                "வெட்கப்படும்படி (Vetkappatum Padi) - மனம் வெட்கப்படுதல், வெட்கமடைதல்."
+          },
         ],
       ),
       StageModel(
@@ -149,7 +157,7 @@ final List<LevelModel> appLevels = [
         images: [
           {
             "image_description":
-                "A Tamil boy sharing his umbrella with a small puppy during rain, showing compassion and kindness.",
+                "A boy sharing his umbrella with a small puppy during rain, showing compassion and kindness.",
             'url': 'images/2-1.jpeg',
             'title': "அருள்",
             'explanation': "கருணை (Karunai) - இரக்கம், தயவு."
@@ -177,6 +185,14 @@ final List<LevelModel> appLevels = [
             'title': "யாங்கு",
             'explanation':
                 "எப்படி (Eppadi) - எவ்வாறு, ஒப்பிடுவதற்குப் பயன்படுத்தப்படும் சொல்."
+          },
+          {
+            "image_description":
+                "A boy with empty pockets looking sad while for the ice cream, showing life without means.",
+            'url': 'images/2-4.jpeg',
+            'title': "இல்லாகி",
+            'explanation':
+                "இல்லாமல் போகும் (Illaamal Pogum) - இருக்காது, இல்லாமல் ஆகிவிடும்."
           },
         ],
       ),
@@ -277,6 +293,14 @@ final List<LevelModel> appLevels = [
             'explanation':
                 "உலக மக்கள் (Ulaga Makkal) - பூமியில் வாழும் மனிதர்கள்."
           },
+          {
+            "image_description":
+                "A child writing in a journal with deep concentration, showing inner thoughts.",
+            'url': 'images/3-4.jpeg',
+            'title': "உள்ளத்தால்",
+            'explanation':
+                "மனதால் (Manathaal) - மனதிலிருந்து, உண்மையான எண்ணத்துடன்."
+          },
         ],
       ),
       StageModel(
@@ -368,6 +392,14 @@ final List<LevelModel> appLevels = [
             'explanation':
                 "அழிந்துவிடும் (Azhinthuvidum) - இல்லாமல் போய்விடும்."
           },
+          {
+            "image_description":
+                "A large globe with diverse people surrounding it, showing the entire planet.",
+            'url': 'images/4-4.jpeg',
+            'title': "உலகம்",
+            'explanation':
+                "பூமி (Bhoomi) - நாம் வாழும் இடம், மக்கள் வாழும் இடம்."
+          },
         ],
       ),
       StageModel(
@@ -458,6 +490,14 @@ final List<LevelModel> appLevels = [
             'title': "உயிர்க்கு",
             'explanation':
                 "வாழும் ஜீவனுக்கு (Vaazhum Jeevanukku) - உயிர் உள்ளவனுக்கு."
+          },
+          {
+            "image_description":
+                "Two bright, clear eyes looking at a book, symbolizing how education helps us see clearly.",
+            'url': 'images/5-4.jpeg',
+            'title': "கண்",
+            'explanation':
+                "பார்வை (Paarvai) - பார்க்கும் உறுப்பு, வழிகாட்டி போன்றது."
           },
         ],
       ),
@@ -559,6 +599,14 @@ final List<LevelModel> appLevels = [
             'title': "உரியர்",
             'explanation': "சொந்தமானவர் (Sonthamaanavar) - உரியவர்கள்."
           },
+          {
+            "image_description":
+                "A person selfishly keeping all toys to themselves while others look on sadly.",
+            'url': 'images/6-4.jpeg',
+            'title': "தமக்குரியர்",
+            'explanation':
+                "தனக்கு மட்டும் சொந்தம் (Thanakku Mattum Sontham) - தன்னலம் கொண்டவர்."
+          },
         ],
       ),
       StageModel(
@@ -645,6 +693,14 @@ final List<LevelModel> appLevels = [
             'title': "உடற்றும்",
             'explanation': "வருத்தும் (Varuththum) - துன்புறுத்தும்."
           },
+          {
+            "image_description":
+                "The bright sun, clouds and sky above, representing heaven or the sky.",
+            'url': 'images/7-4.jpeg',
+            'title': "விண்",
+            'explanation':
+                "வானம் (Vaanam) - மேலே உள்ள ஆகாயம், மழை பொழியும் இடம்."
+          },
         ],
       ),
       StageModel(
@@ -729,6 +785,14 @@ final List<LevelModel> appLevels = [
             'url': 'images/8-3.jpeg',
             'title': "நன்றல்லது",
             'explanation': "தீய செயல் (Theeya Seyal) - கெட்டது."
+          },
+          {
+            "image_description":
+                "A child saying 'thank you' with a grateful smile after receiving help.",
+            'url': 'images/8-4.jpeg',
+            'title': "நன்றி",
+            'explanation':
+                "நன்றி உணர்வு (Nanri Unarvu) - உதவிக்கு கைம்மாறாக அன்பை வெளிப்படுத்துதல்."
           },
         ],
       ),
@@ -824,6 +888,14 @@ final List<LevelModel> appLevels = [
             'title': "சீர்த்த",
             'explanation': "தகுந்த (Thaguntha) - சரியான."
           },
+          {
+            "image_description":
+                "A heron swiftly striking at a fish in water, showing perfect timing.",
+            'url': 'images/9-4.jpeg',
+            'title': "குத்து",
+            'explanation':
+                "தாக்குதல் (Thaakkuthal) - சரியான நேரத்தில் துல்லியமாக செயல்படுதல்."
+          },
         ],
       ),
       StageModel(
@@ -909,6 +981,14 @@ final List<LevelModel> appLevels = [
             'title': "கவர்ந்தற்று",
             'explanation':
                 "கவர்ந்தது போன்றது (Kavarnthathu Pondrathu) - எடுத்துக்கொண்டது போல."
+          },
+          {
+            "image_description":
+                "Ripe, juicy fruits next to unripe ones, showing the difference between sweet and bitter.",
+            'url': 'images/10-4.jpeg',
+            'title': "கனி",
+            'explanation':
+                "பழுத்த பழம் (Pazhutha Pazham) - முதிர்ந்த பழம், இனிப்பான உணவு."
           },
         ],
       ),
