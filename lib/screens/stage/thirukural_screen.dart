@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'dart:io';
+import 'package:http/http.dart' as http;
+import 'package:path_provider/path_provider.dart';
 
 import 'package:get/get.dart';
 import 'package:just_audio/just_audio.dart';
@@ -20,16 +23,41 @@ class ThirukuralScreen extends StatefulWidget {
 class _ThirukuralScreenState extends State<ThirukuralScreen> {
   late AudioPlayer player;
   bool isPlaying = false;
+  bool _isAudioInitialized = false;
+  File? _audioFile;
 
   @override
   void initState() {
     super.initState();
     player = AudioPlayer();
+    _initializeAudio();
+  }
+
+  Future<void> _initializeAudio() async {
+    final cacheDir = await getTemporaryDirectory();
+    final audioFile = File('${cacheDir.path}/${widget.stage.level}.mp3');
+
+    if (!await audioFile.exists()) {
+      final audioUrl =
+          "https://codingfrontend.in/assets/thirukural/audio/${widget.stage.level}.mp3";
+      final response = await http.get(Uri.parse(audioUrl));
+
+      if (response.statusCode == 200) {
+        await audioFile.writeAsBytes(response.bodyBytes);
+      } else {
+        return;
+      }
+    }
+
+    setState(() {
+      _audioFile = audioFile;
+      _isAudioInitialized = true;
+    });
   }
 
   @override
   void dispose() {
-    player.dispose(); // Dispose of the AudioPlayer
+    player.dispose();
     super.dispose();
   }
 
@@ -95,24 +123,29 @@ class _ThirukuralScreenState extends State<ThirukuralScreen> {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () async {
-          if (isPlaying) {
-            setState(() {
-              isPlaying = false;
-            });
-            await player.pause();
-          } else {
-            await player.setAudioSource(AudioSource.asset(
-              'assets/audio/${widget.stage.level}.mp3',
-            ));
-            setState(() {
-              isPlaying = true;
-            });
-            await player.play();
-          }
-        },
-        child: Icon(isPlaying ? Icons.pause : Icons.play_arrow),
-        backgroundColor: Colors.orange,
+        onPressed: _isAudioInitialized
+            ? () async {
+                if (isPlaying) {
+                  setState(() {
+                    isPlaying = false;
+                  });
+                  await player.pause();
+                } else {
+                  await player
+                      .setAudioSource(AudioSource.file(_audioFile!.path));
+                  setState(() {
+                    isPlaying = true;
+                  });
+                  await player.play();
+                }
+              }
+            : null,
+        child: _isAudioInitialized
+            ? Icon(isPlaying ? Icons.pause : Icons.play_arrow)
+            : CircularProgressIndicator(
+                color: Colors.white,
+              ),
+        backgroundColor: _isAudioInitialized ? Colors.orange : Colors.grey,
       ),
     );
   }

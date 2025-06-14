@@ -76,19 +76,23 @@ final List<LevelModel> appLevels = [
         questions: [
           Question(
             id: 1,
-            question: 'நல்ல செயல், கெட்ட செயல் வித்தியாசம் / வேறுபாடு என்ன?',
+            question: 'நல்ல செயல் என்பது என்ன ?',
             options: [
-              'பிறருக்கு உதவுவது',
               'பிறருக்குத் தீங்கு செய்வது',
-              'இரண்டும்'
+              'பிறருக்கு உதவுவது',
+              'பணத்தை வீணாக்குவது'
             ],
-            correctIndex: 0,
+            correctIndex: 1,
           ),
           Question(
             id: 2,
-            question: 'ஏன் நல்லது செய்ய வேண்டும்?',
-            options: ['வெறுப்பை சம்பாதிக்க', 'மகிழ்ச்சி பெற', 'தண்டனை பெற'],
-            correctIndex: 1,
+            question: 'கெட்ட செயல் என்பது என்ன?',
+            options: [
+              'பிறருக்கு உதவுவது',
+              'பணத்தை சேமிப்பது',
+              'பிறருக்குத் தீங்கு செய்வது'
+            ],
+            correctIndex: 2,
           ),
           Question(
             id: 3,
@@ -99,13 +103,21 @@ final List<LevelModel> appLevels = [
           Question(
             id: 4,
             question: 'நல்ல செயல் செய்வதால் நமக்கு என்ன பயன்?',
-            options: ['துன்பம் வரும்', 'பணம் கிடைக்கும்', 'மகிழ்ச்சி கிடைக்கும்', 'மரியாதை கிடைக்கும்'],
+            options: [
+              'துன்பம் வரும்',
+              'பணம் கிடைக்கும்',
+              'மகிழ்ச்சி கிடைக்கும்'
+            ],
             correctIndex: 2,
           ),
           Question(
             id: 5,
             question: 'மற்றவர் எப்போது நம்மைப் பாராட்டுவர்?',
-            options: ['சண்டை போடும்போது', 'தீங்கு செய்யும்போது', 'நல்லது செய்யும்போது'],
+            options: [
+              'சண்டை போடும்போது',
+              'தீங்கு செய்யும்போது',
+              'நல்லது செய்யும்போது'
+            ],
             correctIndex: 2,
           ),
         ],
@@ -137,14 +149,14 @@ final List<LevelModel> appLevels = [
         images: [
           {
             "image_description":
-                "A boy sharing his umbrella with a puppy in the rain.",
+                "A Tamil boy sharing his umbrella with a small puppy during rain, showing compassion and kindness.",
             'url': 'images/2-1.jpeg',
             'title': "அருள்",
             'explanation': "கருணை (Karunai) - இரக்கம், தயவு."
           },
           {
             "image_description":
-                "A glowing, peaceful place in the clouds with happy people and angels, showing 'heaven' gently.",
+                "A peaceful, glowing heaven in the clouds with happy people and gentle angels, symbolizing the world after death.",
             'url': 'images/2-2.jpeg',
             'title': "அவ்வுலகம்",
             'explanation':
@@ -152,7 +164,15 @@ final List<LevelModel> appLevels = [
           },
           {
             "image_description":
-                "Two kids thinking which path to take: one is full of flowers, the other has thorns.",
+                "A global map with children from different cultures holding hands around it, representing the world we live in.",
+            'url': 'images/2-4.jpeg',
+            'title': "இவ்வுலகம்",
+            'explanation':
+                "இந்த உலகம் (Indha Ulagam) - நாம் வாழும் உலகம்."
+          },
+          {
+            "image_description":
+                "Two Indian kids at a crossroads, thinking which path to choose — one filled with flowers, the other with thorns, representing a moral decision.",
             'url': 'images/2-3.jpeg',
             'title': "யாங்கு",
             'explanation':
@@ -190,13 +210,22 @@ final List<LevelModel> appLevels = [
           Question(
             id: 4,
             question: 'பணம் எப்படி நமது வாழ்க்கைக்கு உதவுகிறது?',
-            options: ['கடன் வாங்க', 'தேவைகளைப் பூர்த்தி செய்ய', 'வேலை செய்யாமல் இருக்க'],
+            options: [
+              'கடன் வாங்க',
+              'தேவைகளைப் பூர்த்தி செய்ய',
+              'வேலை செய்யாமல் இருக்க'
+            ],
             correctIndex: 1,
           ),
           Question(
             id: 5,
-            question: 'பணம் இல்லையெனில் பூமிதனில் நமது வாழ்வு எப்படியிருக்கும்?',
-            options: ['மகிழ்ச்சியாக இருக்கும்', 'சுலபமாக இருக்கும்', 'கஷ்டமாக இருக்கும்'],
+            question:
+                'பணம் இல்லையெனில் பூமிதனில் நமது வாழ்வு எப்படியிருக்கும்?',
+            options: [
+              'மகிழ்ச்சியாக இருக்கும்',
+              'சுலபமாக இருக்கும்',
+              'கஷ்டமாக இருக்கும்'
+            ],
             correctIndex: 2,
           ),
         ],
@@ -264,20 +293,24 @@ final List<LevelModel> appLevels = [
           Question(
             id: 2,
             question: 'உண்மையால் வரும் இலாபம் என்ன?',
-            options: ['பகை', 'நம்பிக்கை', 'தனிமை'],
-            correctIndex: 1,
+            options: ['நம்பிக்கை', 'பகை', 'தனிமை'],
+            correctIndex: 0,
           ),
           Question(
             id: 3,
             question: 'பொய் சொல்லுவதால் வரும் நட்டம் என்ன?',
-            options: ['நட்பு', 'செல்வம்', 'நம்பிக்கை இழப்பு'],
-            correctIndex: 2,
+            options: [
+              'நட்பு',
+              'நம்பிக்கை இழப்பு',
+              'செல்வம்',
+            ],
+            correctIndex: 1,
           ),
           Question(
             id: 4,
             question: 'உலகத்தார் யாரை போற்றுவர்?',
-            options: ['பொய் பேசுபவரை', 'கெட்டவரை', 'உண்மை பேசுபவரை'],
-            correctIndex: 2,
+            options: ['உண்மை பேசுபவரை', 'பொய் பேசுபவரை', 'கெட்டவரை'],
+            correctIndex: 0,
           ),
           Question(
             id: 5,
@@ -367,14 +400,15 @@ final List<LevelModel> appLevels = [
           Question(
             id: 4,
             question: 'நமக்கு நல்ல பண்புகள் பயன் தருமா?',
-            options: ['இல்லை', 'ஆம்', 'சில நேரம்'],
+            options: ['இல்லை', 'ஆம்'],
             correctIndex: 1,
           ),
           Question(
             id: 5,
-            question: 'உங்களுக்கு நல்ல பண்புகள் உள்ள மனிதர், நாட்டின் தலைவர் யாரேனும் தெரியுமா?',
-            options: ['ஹிட்லர்', 'யாரும் இல்லை', 'காந்தி', 'நெல்சன் மண்டேலா'],
-            correctIndex: 2,
+            question:
+                'உங்களுக்கு நல்ல பண்புகள் உள்ள மனிதர், நாட்டின் தலைவர் யாரேனும் தெரியுமா?',
+            options: ['ஹிட்லர்', 'மகாத்மா காந்தி', 'யாரும் இல்லை'],
+            correctIndex: 1,
           ),
         ],
       ),
@@ -441,7 +475,11 @@ final List<LevelModel> appLevels = [
           Question(
             id: 2,
             question: 'நீ உனது பெயரை எப்படி யெழுதுகிறாய்?',
-            options: ['படங்களை வரைந்து', 'எழுத்துக்களை பயன்படுத்தி', 'எண்களை பயன்படுத்தி'],
+            options: [
+              'படங்களை வரைந்து',
+              'எழுத்துக்களை பயன்படுத்தி',
+              'எண்களை பயன்படுத்தி'
+            ],
             correctIndex: 1,
           ),
           Question(
@@ -452,15 +490,24 @@ final List<LevelModel> appLevels = [
           ),
           Question(
             id: 4,
-            question: 'உனது ஊருக்குச் செல்லும் பேருந்தை எப்படிக் கண்டுபிடிப்பாய்?',
-            options: ['நிறத்தைப் பார்த்து', 'சத்தத்தை கேட்டு', 'பேருந்து எண்ணைப் பார்த்து'],
-            correctIndex: 2,
+            question:
+                'உனது ஊருக்குச் செல்லும் பேருந்தை எப்படிக் கண்டுபிடிப்பாய்?',
+            options: [
+              'நிறத்தைப் பார்த்து',
+              'பேருந்து எண்ணைப் பார்த்து',
+              'சத்தத்தை கேட்டு',
+            ],
+            correctIndex: 1,
           ),
           Question(
             id: 5,
             question: 'பணத்தின் மதிப்பை எப்படித் தெரிந்து கொள்வாய்?',
-            options: ['எடை', 'அளவு', 'எண்ணிக்கை'],
-            correctIndex: 2,
+            options: [
+              'எண்ணிக்கை',
+              'எடை',
+              'அளவு',
+            ],
+            correctIndex: 0,
           ),
         ],
       ),
@@ -527,7 +574,8 @@ final List<LevelModel> appLevels = [
           ),
           Question(
             id: 2,
-            question: 'அம்மா, அப்பா தவிர வேறு யார் நம்மிடம் அன்பு செலுத்துகிறார்கள்?',
+            question:
+                'அம்மா, அப்பா தவிர வேறு யார் நம்மிடம் அன்பு செலுத்துகிறார்கள்?',
             options: ['தெரியாதவர்கள்', 'விலங்குகள்', 'நண்பர்கள், உறவினர்கள்'],
             correctIndex: 2,
           ),
@@ -613,8 +661,8 @@ final List<LevelModel> appLevels = [
           Question(
             id: 2,
             question: 'பசியை போக்க நமக்கு என்ன தேவை?',
-            options: ['விளையாட்டு', 'பணம்', 'உணவு'],
-            correctIndex: 2,
+            options: ['விளையாட்டு', 'உணவு',  'பணம்', ],
+            correctIndex: 1,
           ),
           Question(
             id: 3,
@@ -631,8 +679,8 @@ final List<LevelModel> appLevels = [
           Question(
             id: 5,
             question: 'உணவையும், தண்ணீரையும் வீணாக்கலாமா?',
-            options: ['ஆம்', 'சில நேரம்', 'கூடாது'],
-            correctIndex: 2,
+            options: ['ஆம்', 'கூடாது'],
+            correctIndex: 1,
           ),
         ],
       ),
@@ -692,7 +740,11 @@ final List<LevelModel> appLevels = [
           Question(
             id: 1,
             question: 'நன்றி என்பது என்ன?',
-            options: ['பணத்தைக் கொடுப்பது', 'சண்டை போடுவது', 'உதவியை அங்கீகரிப்பது'],
+            options: [
+              'பணத்தைக் கொடுப்பது',
+              'சண்டை போடுவது',
+              'உதவியை அங்கீகரிப்பது'
+            ],
             correctIndex: 2,
           ),
           Question(
@@ -704,20 +756,25 @@ final List<LevelModel> appLevels = [
           Question(
             id: 3,
             question: 'செய்த நன்றியை மறந்தால் என்னவாகும்?',
-            options: ['பணம் கிடைக்கும்', 'மதிப்பு குறையும்', 'வெற்றி கிடைக்கும்'],
+            options: [
+              'பணம் கிடைக்கும்',
+              'மதிப்பு குறையும்',
+              'வெற்றி கிடைக்கும்'
+            ],
             correctIndex: 1,
           ),
           Question(
             id: 4,
             question: 'பிறர் செய்த தீமையை மறக்கலாமா?',
-            options: ['இல்லை', 'ஆம்', 'சில நேரம்'],
+            options: ['இல்லை', 'ஆம்'],
             correctIndex: 1,
           ),
           Question(
             id: 5,
-            question: 'பிறர் உனக்கு உதவி செய்யாவிட்டாலும், நீ மற்றவர்க்கும் உதவி செய்வாயா?',
-            options: ['இல்லை', 'தேவையில்லை', 'ஆம்'],
-            correctIndex: 2,
+            question:
+                'பிறர் உனக்கு உதவி செய்யாவிட்டாலும், நீ மற்றவர்க்கும் உதவி செய்வாயா?',
+            options: ['இல்லை', 'ஆம்'],
+            correctIndex: 1,
           ),
         ],
       ),
@@ -731,9 +788,9 @@ final List<LevelModel> appLevels = [
         level: 9,
         type: StageType.thirukural,
         title: 'திருக்குறள்',
-        kural: 'இனிய உளவாக இன்னாத கூறல்\nகனிஇருப்பக் காய்கவர்ந் தற்று',
+        kural: 'கொக்கொக்க கூம்பும் பருவத்து மற்றதன்\nகுத்தொக்க சீர்த்த இடத்து',
         explanation:
-            'இனிமையான சொற்கள் இருக்கும்போது, அவற்றைப் பயன்படுத்தாமல் கடுமையான சொற்களைப் பேசுவது, இனிப்பான கனிகள் இருக்கும்போது அவற்றை விட்டுவிட்டு, புளிப்பான காய்களைப் பறித்து உண்பது போன்றது.',
+            'காலத்தை எதிர்பார்க்க வேண்டிய பருவத்தில், கொக்கைப் போல இருந்து; காலம் வாய்த்த போதில் கொக்கு மீனைக் குத்தினாற் போலத் தவறாமல் செய்து முடிக்க வேண்டும்.',
       ),
       StageModel(
         level: 9,
@@ -747,27 +804,25 @@ final List<LevelModel> appLevels = [
         images: [
           {
             "image_description":
-                "A treasure chest overflowing with gold coins and jewels, representing abundance and availability.",
+                "A white crane standing still in a pond, looking graceful.",
             'url': 'images/9-1.jpeg',
-            'title': "உளவாக",
-            'explanation':
-                "இருக்கும்போது (Irukkumbothu) - நிறையக் கிடைக்கும்போது அல்லது போதுமான அளவு இருக்கும்போது. நல்ல மற்றும் இனிய விஷயங்கள் ஏராளமாக இருப்பதைக் குறிக்கிறது."
+            'title': "கொக்கொக்க",
+            'explanation': "கொக்கு போல (Kokkokka) - ஒரு வகை நீர்ப்பறவை போல."
           },
           {
             "image_description":
-                "A person with a pleasant, smiling face contrasted with a person with a scowling, unhappy face.",
+                "A group of birds sitting quietly on a tree at sunset.",
             'url': 'images/9-2.jpeg',
-            'title': "இன்னாத",
+            'title': "கூம்பும்",
             'explanation':
-                "துன்பம் தரும் (Thunbam Tharum) - தீங்கு விளைவிக்கும் அல்லது துன்புறுத்தும். இனிமையான சொற்களுக்கு நேர் எதிரானது."
+                "காத்திருக்கும் (Kaaththirukkum) - அமைதியாக இருக்கும்."
           },
           {
             "image_description":
-                "A person choosing a green, unripe fruit from a tree, while ripe, colorful fruits are clearly visible nearby.",
+                "A child wearing clean uniform and standing ready for school assembly.",
             'url': 'images/9-3.jpeg',
-            'title': "காய்கவர்ந்",
-            'explanation':
-                "காய்களைப் பறித்தல் (Kaaygalai Pariththal) - இது முதிர்ச்சியடையாத, உண்ணத் தகாத காய்களைத் தேர்ந்தெடுப்பதைக் குறிக்கிறது. இனிமையான சொற்கள் இருக்கும்போது கடுமையான சொற்களைப் பேசுவதை ஒப்பிடுகிறது."
+            'title': "சீர்த்த",
+            'explanation': "தகுந்த (Thaguntha) - சரியான."
           },
         ],
       ),
@@ -791,8 +846,8 @@ final List<LevelModel> appLevels = [
           Question(
             id: 3,
             question: 'கொக்கின் செயல்பாட்டில் கவனச் சிதறல் உள்ளதா?',
-            options: ['ஆம்', 'சில நேரம்', 'இல்லை'],
-            correctIndex: 2,
+            options: ['ஆம்', 'இல்லை'],
+            correctIndex: 1,
           ),
           Question(
             id: 4,
@@ -871,8 +926,8 @@ final List<LevelModel> appLevels = [
           Question(
             id: 2,
             question: 'இனிமையில்லாத சொல்லினால் பலன் உண்டா?',
-            options: ['ஆம்', 'சில நேரம்', 'இல்லை'],
-            correctIndex: 2,
+            options: ['ஆம்', 'இல்லை'],
+            correctIndex: 1,
           ),
           Question(
             id: 3,
@@ -889,8 +944,8 @@ final List<LevelModel> appLevels = [
           Question(
             id: 5,
             question: 'நீண்ட கால உறவை இனிய சொல் பலப்படுத்துமா?',
-            options: ['பலப்படுத்தாது', 'சில நேரம்', 'பலப்படுத்தும்'],
-            correctIndex: 2,
+            options: ['பலப்படுத்தாது', 'பலப்படுத்தும்'],
+            correctIndex: 1,
           ),
         ],
       ),
