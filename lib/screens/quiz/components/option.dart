@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../../../constants.dart';
 
 class Option extends StatelessWidget {
@@ -17,51 +18,97 @@ class Option extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Color getTheRightColor() {
-      if (isSelected) {
-        if (isCorrect != null) {
-          return isCorrect! ? kGreenColor : kRedColor;
-        }
-        return kSecondaryColor; // Selected but not yet evaluated
+    Color getBackgroundColor() {
+      if (isSelected && isCorrect != null) {
+        return isCorrect! ? kSuccessColor : kErrorColor;
+      } else if (isSelected) {
+        return kPrimaryColor;
       }
-      return kGrayColor; // Not selected
+      return kCardColor;
     }
-    Color getTheTextRightColor() {
+
+    Color getBorderColor() {
+      if (isSelected && isCorrect != null) {
+        return isCorrect! ? kSuccessColor : kErrorColor;
+      } else if (isSelected) {
+        return kPrimaryColor;
+      }
+      return kGrayColor.withOpacity(0.3);
+    }
+
+    Color getTextColor() {
       if (isSelected) {
         return Colors.white;
       }
-      return kGrayColor; // Not selected
+      return kTextPrimaryColor;
     }
-    return GestureDetector(
-      onTap: press,
-      child: Container(
-        margin: EdgeInsets.only(top: kDefaultPadding),
-        padding: EdgeInsets.all(kDefaultPadding),
-        decoration: BoxDecoration(
-          border: Border.all(color: getTheRightColor()),
-          borderRadius: BorderRadius.circular(15),
-          color: isSelected ? getTheRightColor().withValues(alpha: 0.5) : Colors.white.withValues(alpha: 0.1),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              "${index + 1}. $text",
-              style: TextStyle(color: getTheTextRightColor(), fontSize: 16),
+
+    return Container(
+      width: double.infinity,
+      margin: EdgeInsets.only(bottom: kSmallPadding),
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          onTap: press,
+          borderRadius: BorderRadius.circular(kDefaultRadius),
+          child: AnimatedContainer(
+            duration: Duration(milliseconds: 200),
+            padding: EdgeInsets.all(kDefaultPadding),
+            decoration: BoxDecoration(
+              color: getBackgroundColor(),
+              borderRadius: BorderRadius.circular(kDefaultRadius),
+              border: Border.all(color: getBorderColor(), width: 1.5),
+              boxShadow: isSelected ? kCardShadow : [],
             ),
-            Container(
-              height: 26,
-              width: 26,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(50),
-                border: Border.all(color: getTheRightColor()),
-                color: isSelected ? getTheRightColor() : null,
-              ),
-              child: isSelected
-                  ? Icon(Icons.check, size: 16, color: Colors.white)
-                  : null,
-            )
-          ],
+            child: Row(
+              children: [
+                Container(
+                  width: 32,
+                  height: 32,
+                  decoration: BoxDecoration(
+                    color: isSelected ? Colors.white.withOpacity(0.2) : kPrimaryColor.withOpacity(0.1),
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                  child: Center(
+                    child: Text(
+                      String.fromCharCode(65 + index), // A, B, C, D
+                      style: GoogleFonts.inter(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w600,
+                        color: isSelected ? Colors.white : kPrimaryColor,
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(width: kSmallPadding),
+                Expanded(
+                  child: Text(
+                    text,
+                    style: GoogleFonts.inter(
+                      fontSize: 15,
+                      fontWeight: FontWeight.w500,
+                      color: getTextColor(),
+                      height: 1.3,
+                    ),
+                  ),
+                ),
+                if (isSelected && isCorrect != null)
+                  Container(
+                    width: 24,
+                    height: 24,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Icon(
+                      isCorrect! ? Icons.check_rounded : Icons.close_rounded,
+                      size: 16,
+                      color: isCorrect! ? kSuccessColor : kErrorColor,
+                    ),
+                  ),
+              ],
+            ),
+          ),
         ),
       ),
     );

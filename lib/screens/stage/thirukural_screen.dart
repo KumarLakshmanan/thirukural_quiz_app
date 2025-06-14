@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:io';
 import 'package:http/http.dart' as http;
 import 'package:path_provider/path_provider.dart';
-
+import 'package:google_fonts/google_fonts.dart';
 import 'package:get/get.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:quiz_app/constants.dart';
@@ -60,92 +60,250 @@ class _ThirukuralScreenState extends State<ThirukuralScreen> {
     player.dispose();
     super.dispose();
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: kBackgroundColor,
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: kBackgroundColor,
         elevation: 0,
-        title: Text('திருக்குறள்', style: TextStyle(color: Colors.white)),
+        title: Text(
+          'திருக்குறள்',
+          style: GoogleFonts.inter(
+            fontSize: 18,
+            fontWeight: FontWeight.w600,
+            color: kTextPrimaryColor,
+          ),
+        ),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.white),
+          icon: Icon(Icons.arrow_back_rounded, color: kTextPrimaryColor),
           onPressed: () => Get.back(),
         ),
       ),
-      body: Stack(
-        children: [
-          Container(
-            decoration: BoxDecoration(
-              color: Color(0xFF252c4a).withValues(alpha: 0.5),
-              image: DecorationImage(
-                image: AssetImage("assets/icons/bg.png"),
-                opacity: 0.2,
-                repeat: ImageRepeat.repeat,
+      body: SafeArea(
+        child: Column(
+          children: [
+            Container(
+              width: double.infinity,
+              padding: EdgeInsets.all(kDefaultPadding),
+              decoration: BoxDecoration(
+                color: kCardColor,
+                boxShadow: kCardShadow,
               ),
-            ),
-          ),
-          SafeArea(
-            child: Padding(
-              padding: const EdgeInsets.all(kDefaultPadding),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  CircleAvatar(
-                    radius: 80,
-                    backgroundColor: Colors.orange,
-                    child: CircleAvatar(
-                      radius: 75,
-                      backgroundImage:
-                          AssetImage("assets/icons/thiruvalluvar.png"),
-                    ),
-                  ),
-                  SizedBox(height: 20),
-                  FittedBox(
-                    child: Text(
-                      widget.stage.kural!,
-                      style:
-                          Theme.of(context).textTheme.headlineMedium?.copyWith(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                              ),
-                    ),
-                  ),
-                  SizedBox(height: 20),
                   Text(
-                    "விளக்கம்: ${widget.stage.explanation!}",
-                    style: TextStyle(color: Colors.white, fontSize: 12),
+                    'நிலை ${widget.stage.level}',
+                    style: GoogleFonts.inter(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
+                      color: kTextSecondaryColor,
+                    ),
+                  ),
+                  SizedBox(height: 4),
+                  Text(
+                    'இந்த திருக்குறளை படித்து கற்றுக்கொள்ளுங்கள்',
+                    style: GoogleFonts.inter(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                      color: kTextPrimaryColor,
+                    ),
                   ),
                 ],
               ),
             ),
+            Expanded(
+              child: SingleChildScrollView(
+                physics: BouncingScrollPhysics(),
+                child: Column(
+                  children: [
+                    Container(
+                      padding: EdgeInsets.all(kDefaultPadding),
+                      decoration: BoxDecoration(
+                        color: kCardColor,
+                        borderRadius: BorderRadius.circular(kDefaultRadius),
+                        boxShadow: kCardShadow,
+                      ),
+                      child: Column(
+                        children: [
+                          Container(
+                            width: 120,
+                            height: 120,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              gradient: kPrimaryGradient,
+                              boxShadow: kElevatedShadow,
+                            ),
+                            padding: EdgeInsets.all(4),
+                            child: CircleAvatar(
+                              backgroundImage:
+                                  AssetImage("assets/icons/thiruvalluvar.png"),
+                            ),
+                          ),
+                          SizedBox(height: kDefaultPadding),
+                          Container(
+                            padding: EdgeInsets.all(kSmallPadding),
+                            decoration: BoxDecoration(
+                              color: kSurfaceColor,
+                              borderRadius: BorderRadius.circular(kSmallRadius),
+                            ),
+                            child: Text(
+                              widget.stage.kural!,
+                              style: GoogleFonts.inter(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w600,
+                                color: kTextPrimaryColor,
+                                height: 1.5,
+                              ),
+                              textAlign: TextAlign.start,
+                            ),
+                          ),
+                          SizedBox(height: kDefaultPadding),
+                          Container(
+                            width: double.infinity,
+                            padding: EdgeInsets.all(kSmallPadding),
+                            decoration: BoxDecoration(
+                              color: kPrimaryColor.withOpacity(0.1),
+                              borderRadius: BorderRadius.circular(kSmallRadius),
+                              border: Border.all(
+                                color: kPrimaryColor.withOpacity(0.2),
+                              ),
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "விளக்கம்:",
+                                  style: GoogleFonts.inter(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w600,
+                                    color: kPrimaryColor,
+                                  ),
+                                ),
+                                SizedBox(height: 4),
+                                Text(
+                                  widget.stage.explanation!,
+                                  style: GoogleFonts.inter(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w400,
+                                    color: kTextPrimaryColor,
+                                    height: 1.5,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(height: kDefaultPadding),
+                    _buildAudioPlayer(),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }  Widget _buildAudioPlayer() {
+    return Container(
+      padding: EdgeInsets.all(kDefaultPadding),
+      decoration: BoxDecoration(
+        color: kCardColor,
+        borderRadius: BorderRadius.circular(kDefaultRadius),
+        boxShadow: kCardShadow,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'ஒலி பதிவு',
+            style: GoogleFonts.inter(
+              fontSize: 16,
+              fontWeight: FontWeight.w600,
+              color: kTextPrimaryColor,
+            ),
+          ),
+          SizedBox(height: kSmallPadding),
+          Text(
+            'இந்த திருக்குறளை சரியாக உச்சரிக்க ஒலிப்பதிவைக் கேளுங்கள்',
+            style: GoogleFonts.inter(
+              fontSize: 14,
+              fontWeight: FontWeight.w400,
+              color: kTextSecondaryColor,
+            ),
+          ),
+          SizedBox(height: kDefaultPadding),
+          Container(
+            width: double.infinity,
+            height: 56,
+            decoration: BoxDecoration(
+              gradient: _isAudioInitialized ? kPrimaryGradient : null,
+              color: _isAudioInitialized ? null : kGrayColor.withOpacity(0.3),
+              borderRadius: BorderRadius.circular(kDefaultRadius),
+            ),
+            child: Material(
+              color: Colors.transparent,
+              child: InkWell(
+                onTap: _isAudioInitialized
+                    ? () async {
+                        if (isPlaying) {
+                          setState(() {
+                            isPlaying = false;
+                          });
+                          await player.pause();
+                        } else {
+                          await player
+                              .setAudioSource(AudioSource.file(_audioFile!.path));
+                          setState(() {
+                            isPlaying = true;
+                          });
+                          await player.play();
+                        }
+                      }
+                    : null,
+                borderRadius: BorderRadius.circular(kDefaultRadius),
+                child: Center(
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      if (_isAudioInitialized)
+                        Icon(
+                          isPlaying ? Icons.pause_rounded : Icons.play_arrow_rounded,
+                          color: Colors.white,
+                          size: 28,
+                        )
+                      else
+                        SizedBox(
+                          width: 20,
+                          height: 20,
+                          child: CircularProgressIndicator(
+                            valueColor: AlwaysStoppedAnimation<Color>(kGrayColor),
+                            strokeWidth: 2,
+                          ),
+                        ),
+                      SizedBox(width: kSmallPadding),
+                      Text(
+                        _isAudioInitialized
+                            ? (isPlaying ? 'நிறுத்து' : 'கேள்')
+                            : 'ஒலிப்பதிவு ஏற்றப்படுகிறது...',
+                        style: GoogleFonts.inter(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w600,
+                          color: _isAudioInitialized
+                              ? Colors.white
+                              : kTextSecondaryColor,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
           ),
         ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _isAudioInitialized
-            ? () async {
-                if (isPlaying) {
-                  setState(() {
-                    isPlaying = false;
-                  });
-                  await player.pause();
-                } else {
-                  await player
-                      .setAudioSource(AudioSource.file(_audioFile!.path));
-                  setState(() {
-                    isPlaying = true;
-                  });
-                  await player.play();
-                }
-              }
-            : null,
-        child: _isAudioInitialized
-            ? Icon(isPlaying ? Icons.pause : Icons.play_arrow)
-            : CircularProgressIndicator(
-                color: Colors.white,
-              ),
-        backgroundColor: _isAudioInitialized ? Colors.orange : Colors.grey,
       ),
     );
   }
