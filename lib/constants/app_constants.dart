@@ -172,14 +172,6 @@ final List<LevelModel> appLevels = [
           },
           {
             "image_description":
-                "A global map with children from different cultures holding hands around it, representing the world we live in.",
-            'url': 'images/2-4.jpeg',
-            'title': "இவ்வுலகம்",
-            'explanation':
-                "இந்த உலகம் (Indha Ulagam) - நாம் வாழும் உலகம்."
-          },
-          {
-            "image_description":
                 "Two Indian kids at a crossroads, thinking which path to choose — one filled with flowers, the other with thorns, representing a moral decision.",
             'url': 'images/2-3.jpeg',
             'title': "யாங்கு",

@@ -199,7 +199,7 @@ class MyApp extends StatelessWidget {
           fontWeight: FontWeight.w500,
         ),
       ),
-      cardTheme: CardTheme(
+      cardTheme: CardThemeData(
         color: kCardColor,
         elevation: 0,
         shadowColor: Colors.transparent,
